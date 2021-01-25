@@ -24,7 +24,7 @@ Pour ce premier cours on attaque avec la partie la plus fastidieuse...désolé :
 On rentre dans le vif du sujet, on attaque notre platfomer.
 
 Dans ce repo vous avez une structure de projet qui fonctionne et que vous pouvez conserver et améliorerer bien entendu.
-Le jeu est visible sur https://davidmarsprof.github.io/platformer. Vous noterez le petit pad qui permet de jouer sur mobile.
+Le jeu est visible sur https://ilyord.github.io/Plateformer_Perso/index.html. Vous noterez le petit pad qui permet de jouer sur mobile.
 Ce pad n'est pas par défaut dans Phaser, c'est un petit bout de code que j'ai ajouté, on y reviendra (ou pas).
 
 ### Structure du projet
