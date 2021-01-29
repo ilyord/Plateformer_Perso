@@ -4,6 +4,11 @@ class Tableau10 extends Tableau{
         super.preload();
         this.load.image('star', 'assets/star.png');
         this.load.image('monster-violet', 'assets/monster-violet.png');
+        this.load.image('e1', 'assets/e1.png');
+        this.load.image('e2', 'assets/e2.png');
+        this.load.image('e3', 'assets/e3.png');
+        this.load.image('e4', 'assets/e4.png');
+        this.load.image('e5', 'assets/e5.png');
 
     }
     create() {
@@ -22,7 +27,7 @@ class Tableau10 extends Tableau{
         this.physics.add.overlap(this.player, this.stars, this.ramasserEtoile, null, this);
 
         //beber (le glitcheur)
-        this.beber=this.physics.add.sprite(400,this.sys.canvas.height,"monster-violet");
+        this.beber=this.physics.add.sprite(400,this.sys.canvas.height,"e1");
         this.beber.setOrigin(0,0);
         this.beber.setDisplaySize(80,80);
         this.beber.setCollideWorldBounds(true);
@@ -33,7 +38,7 @@ class Tableau10 extends Tableau{
 
         //jacques (petit qui saute vite)
         
-        this.jacques=this.physics.add.sprite(innerWidth,this.sys.canvas.height-250,"monster-violet");
+        this.jacques=this.physics.add.sprite(innerWidth,this.sys.canvas.height-250,"e3");
         this.jacques.setOrigin(0,0);
         this.jacques.setDisplaySize(20,20);
         this.jacques.setCollideWorldBounds(true);
@@ -43,7 +48,7 @@ class Tableau10 extends Tableau{
         this.physics.add.overlap(this.player, this.jacques, this.hitSpike, null, this);
 
         //monstre (gros et lent)
-        this.monstre=this.physics.add.sprite(innerWidth,this.sys.canvas.height,"monster-violet");
+        this.monstre=this.physics.add.sprite(innerWidth,this.sys.canvas.height,"e5");
         this.monstre.setOrigin(0,0);
         this.monstre.setDisplaySize(80,80);
         this.monstre.setCollideWorldBounds(true);
@@ -63,7 +68,7 @@ class Tableau10 extends Tableau{
 
 
         //jaja (sauteur)
-        this.jaja=this.physics.add.sprite(300,this.sys.canvas.height,"monster-violet");
+        this.jaja=this.physics.add.sprite(300,this.sys.canvas.height,"e2");
         this.jaja.setOrigin(0,0);
         this.jaja.setDisplaySize(64,64);
         this.jaja.setCollideWorldBounds(true);
@@ -73,7 +78,7 @@ class Tableau10 extends Tableau{
         this.physics.add.overlap(this.player, this.jaja, this.hitSpike, null, this);
 
         //gerard (random)
-        this.gerard=this.physics.add.sprite(200,this.sys.canvas.height-70,"monster-violet");
+        this.gerard=this.physics.add.sprite(200,this.sys.canvas.height-70,"e4");
         this.gerard.setOrigin(0,0);
         this.gerard.setDisplaySize(64,64);
         this.gerard.setCollideWorldBounds(true);
