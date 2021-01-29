@@ -18,7 +18,7 @@ let config = {
 
         
         
-        new Zoo ("Le zoo de Kaaris"),
+        new Tableau10("Le zoo de Kaaris"),
         new Tableau09("a moi"),
         new Tableau01("Des plateformes"),
         new Tableau00("Des étoiles"),
