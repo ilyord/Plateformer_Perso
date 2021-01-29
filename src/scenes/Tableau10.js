@@ -58,6 +58,7 @@ class Tableau10 extends Tableau{
 
         /* //edern (0Grav)
         this.edern=this.physics.add.sprite(100,0,"monster-violet");
+        this.edern.setIgnoreGravity(true)
         this.edern.setOrigin(0,0);
         this.edern.setDisplaySize(80,80);
         this.edern.setCollideWorldBounds(true);
