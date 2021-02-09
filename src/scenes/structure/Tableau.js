@@ -86,6 +86,54 @@ class Tableau extends Phaser.Scene{
     }
 
     /**
+     * Quand on touche un monstre
+     * si on le touche par en haut on le tue, sinon c'est lui qui nous tue
+     * @param {Player} player
+     * @param {Phaser.Physics.Arcade.Sprite} monster
+     */
+    hitMonster(player, monster){
+        let me=this;
+        if(monster.isDead !== true){ //si notre monstre n'est pas déjà mort
+            if(
+                // si le player descend
+                player.body.velocity.y > 0
+                // et si le bas du player est plus haut que le monstre
+                && player.getBounds().bottom < monster.getBounds().top+30
+
+            ){
+                ui.gagne();
+                monster.isDead=true; //ok le monstre est mort
+                monster.disableBody(true,true);//plus de collisions
+                this.saigne(monster,function(){
+                    //à la fin de la petite anim...ben il se passe rien :)
+                })
+                //notre joueur rebondit sur le monstre
+                player.directionY=500;
+            }else{
+                //le joueur est mort
+                if(!me.player.isDead){
+                    me.player.isDead=true;
+                    me.player.visible=false;
+                    //ça saigne...
+                    me.saigne(me.player,function(){
+                        //à la fin de la petite anim, on relance le jeu
+                        me.blood.visible=false;
+                        me.player.anims.play('turn');
+                        me.player.isDead=false;
+                        me.scene.restart();
+                    })
+
+                }
+
+
+            }
+        }
+
+    }
+
+
+
+    /**
      * Pour reset cette scène proprement
      * @private
      */

@@ -23,6 +23,8 @@ class beber extends ObjetEnnemi{
         this.setCollideWorldBounds(true);
         this.setBounce(1);
         this.setVelocityX(25);
+        this.set
+        this.scene.events.on('update', (time, delta) => { this.update(time, delta)} );
 
 
         

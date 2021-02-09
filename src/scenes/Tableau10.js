@@ -14,11 +14,11 @@ class Tableau10 extends Tableau{
     create() {
         super.create();
 
-        new beber (this,100,100);
-        new jacques (this,200,100);
-        new monstre (this,300,100);
-        new jaja (this,400,100);
-        new gerard (this,500,100);
+        new beber (this,100,500);
+        new jacques (this,200,400);
+        new monstre (this,300,400);
+        new jaja (this,400,400);
+        new gerard (this,500,400);
 
 
         //quelques étoiles

@@ -17,7 +17,7 @@ let config = {
         new Ui(),
 
         
-        
+        new Tableau08("CAMERA"),
         new Tableau10("Le zoo de Kaaris"),
         new Tableau09("a moi"),
         new Tableau01("Des plateformes"),
@@ -30,7 +30,7 @@ let config = {
         new Tableau05("Extend un tableau"),
         new Tableau06("Un monstre!"),
         new Tableau07("Un monstre volant!"),
-        new Tableau08("Un plateau qui sort du cadre"),
+        
 
     ],
     width: width,
