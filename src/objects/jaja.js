@@ -16,6 +16,7 @@ class jaja extends ObjetEnnemi{
         this.setOffset(150, 250);
         
         //jaja (sauteur)
+        this.setDepth(11)
         this.setOrigin(0,0);
         this.setDisplaySize(64,64);
         this.setCollideWorldBounds(true);

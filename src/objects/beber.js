@@ -14,11 +14,12 @@ class beber extends ObjetEnnemi{
         this.setDisplaySize(80,80);
 
         //on réduit un peu la zone de hit
-        this.setBodySize(this.body.width-400,this.body.height-400);
-        this.setOffset(150, 250);
+        this.setBodySize(this.body.width-600,this.body.height-220);
+        this.setOffset(300, 100);
 
         //Propriétés diverse
-    
+        
+        this.setDepth(11)    
         this.setOrigin(0,0);
         this.setCollideWorldBounds(true);
         this.setBounce(1);

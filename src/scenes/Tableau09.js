@@ -27,11 +27,6 @@ class Tableau09 extends Tableau{
       //les étoiles rebondissent sur les plateformes
       this.physics.add.collider(this.platforms, this.stars);
 
-      //fait passer les éléments devant le ciel
-      this.platforms.setDepth(10)
-      this.stars.setDepth(10)
-      this.player.setDepth(11)
-
         //on définit la taille du tableau
         let largeurDuTableau=4000;
         let hauteurDuTableau=600; //la hauteur est identique au cadre du jeu
