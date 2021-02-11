@@ -16,6 +16,7 @@ class Tableau extends Phaser.Scene{
      */
     preload(){
         this.load.image('sky', 'assets/sky.png');
+        this.load.image('blood', 'assets/blood.png');
         this.load.image('spike', 'assets/spike.png');
         this.load.spritesheet('player',
             'assets/player.png',
@@ -25,24 +26,51 @@ class Tableau extends Phaser.Scene{
     create(){
         Tableau.current=this;
         this.sys.scene.scale.lockOrientation("landscape")
-        console.log("On est sur "+this.constructor.name+" / "+this.scene.key);
-        /**
-         * Le ciel en fond
-         * @type {Phaser.GameObjects.Image}
-         */
-        this.sky=this.add.image(0, 0, 'sky').setOrigin(0,0);
-        this.sky.displayWidth=14*64;
-        this.sky.setScrollFactor(0,0);
+        console.log("Bienvenue sur "+this.constructor.name+" / "+this.scene.key);
         /**
          * Le joueur
          * @type {Player}
          */
-        this.player=new Player(this,0,0);
+        this.player=new Player(this,0,400);
+
+        this.blood=this.add.sprite(this.sys.canvas.width/2,this.sys.canvas.height/2,"blood")
+        this.blood.displayWidth=64;
+        this.blood.displayHeight=64;
+        this.blood.visible=false;
 
     }
     update(){
         super.update();
         this.player.move();
+    }
+
+    /**
+     *
+     * @param {Sprite} object Objet qui saigne
+     * @param {function} onComplete Fonction à appeler quand l'anim est finie
+     */
+    saigne(object,onComplete){
+        let me=this;
+        me.blood.visible=true;
+        me.blood.rotation = Phaser.Math.Between(0,6);
+        me.blood.x=object.x;
+        me.blood.y=object.y;
+        me.tweens.add({
+            targets:me.blood,
+            duration:200,
+            displayHeight:{
+                from:40,
+                to:70,
+            },
+            displayWidth:{
+                from:40,
+                to:70,
+            },
+            onComplete: function () {
+                me.blood.visible=false;
+                onComplete();
+            }
+        })
     }
 
     ramasserEtoile (player, star)
@@ -62,13 +90,6 @@ class Tableau extends Phaser.Scene{
         if(totalActive===0){
             this.win();
         }
-        /*
-        // this.stars est un groupe (plus tard)
-        if (this.stars.countActive(true) === 0)
-        {
-           this.win();
-        }
-         */
     }
 
     /**
@@ -130,8 +151,6 @@ class Tableau extends Phaser.Scene{
         }
 
     }
-
-
 
     /**
      * Pour reset cette scène proprement
