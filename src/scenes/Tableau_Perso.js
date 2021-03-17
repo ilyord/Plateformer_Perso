@@ -34,7 +34,6 @@ class Tableau_Perso extends Tableau{
         new jaja (this,1800,500).setDepth(1);
         this.physics.add.overlap(this.player, this.stars, this.ramasserEtoile, null, this);
         this.physics.add.collider(this.player,this.platforms);
-        //this.physics.add.overlap(this.player, beber, this.hitMonster(Player,beber), null, this);
 
         
     //un groupe d'étoiles et plate - forme

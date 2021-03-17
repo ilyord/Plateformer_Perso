@@ -1,3 +1,4 @@
+  
 class ObjetEnnemi extends ObjetPhysique{
     /**
      * Quand Player touche cet objet, il a perdu
@@ -11,7 +12,7 @@ class ObjetEnnemi extends ObjetPhysique{
         scene.physics.add.overlap(
             scene.player,
             this,
-            scene.hitSpike,
+            scene.hitMonster,
             null,
             scene
         );
