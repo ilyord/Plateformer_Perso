@@ -16,6 +16,7 @@ let config = {
     scene: [
         new Ui(),
 
+        new Tableau_Tiled ("MAP TEST"),
         new Tableau_Perso ("In Space"), 
         new Tableau08("CAMERA"),
         new Tableau10("Le zoo de Kaaris"),
