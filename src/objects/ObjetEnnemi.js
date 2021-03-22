@@ -1,4 +1,3 @@
-  
 class ObjetEnnemi extends ObjetPhysique{
     /**
      * Quand Player touche cet objet, il a perdu

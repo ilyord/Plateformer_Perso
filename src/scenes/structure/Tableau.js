@@ -25,14 +25,22 @@ class Tableau extends Phaser.Scene{
     }
     create(){
         Tableau.current=this;
+        this.isMobile=this.game.device.os.android || this.game.device.os.iOS;
         this.sys.scene.scale.lockOrientation("landscape")
-        console.log("Bienvenue sur "+this.constructor.name+" / "+this.scene.key);
+        console.log("On est sur "+this.constructor.name+" / "+this.scene.key);
+        /**
+         * Le ciel en fond
+         * @type {Phaser.GameObjects.Image}
+         */
+        this.sky=this.add.image(0, 0, 'sky').setOrigin(0,0);
+        this.sky.displayWidth=14*64;
+        this.sky.setScrollFactor(0,0);
         /**
          * Le joueur
          * @type {Player}
          */
-        this.player=new Player(this,0,400);
-
+        this.player=new Player(this,0,0);
+        this.player.setMaxVelocity(800,800); //évite que le player quand il tombe ne traverse des plateformes
         this.blood=this.add.sprite(this.sys.canvas.width/2,this.sys.canvas.height/2,"blood")
         this.blood.displayWidth=64;
         this.blood.displayHeight=64;
@@ -76,9 +84,11 @@ class Tableau extends Phaser.Scene{
     ramasserEtoile (player, star)
     {
         star.disableBody(true, true);
+        star.emit("disabled");
         ui.gagne();
 
         //va lister tous les objets de la scène pour trouver les étoies et vérifier si elles sont actives
+        /*
         let totalActive=0;
         for(let child of this.children.getChildren()){
             if(child.texture && child.texture.key==="star"){
@@ -90,6 +100,7 @@ class Tableau extends Phaser.Scene{
         if(totalActive===0){
             this.win();
         }
+        */
     }
 
     /**
@@ -132,24 +143,33 @@ class Tableau extends Phaser.Scene{
                 player.directionY=500;
             }else{
                 //le joueur est mort
-                if(!me.player.isDead){
-                    me.player.isDead=true;
-                    me.player.visible=false;
-                    //ça saigne...
-                    me.saigne(me.player,function(){
-                        //à la fin de la petite anim, on relance le jeu
-                        me.blood.visible=false;
-                        me.player.anims.play('turn');
-                        me.player.isDead=false;
-                        me.scene.restart();
-                    })
-
-                }
-
-
+                me.playerDie();
             }
         }
 
+    }
+
+    /**
+     * Tue le player
+     * - le rend invisible
+     * - fait apparaitre du sang
+     * - ressuscite le player
+     * - redémarre le tableau
+     */
+    playerDie(){
+        let me=this;
+        if(!me.player.isDead) {
+            me.player.isDead = true;
+            me.player.visible = false;
+            //ça saigne...
+            me.saigne(me.player, function () {
+                //à la fin de la petite anim, on relance le jeu
+                me.blood.visible = false;
+                me.player.anims.play('turn');
+                me.player.isDead = false;
+                me.scene.restart();
+            })
+        }
     }
 
     /**

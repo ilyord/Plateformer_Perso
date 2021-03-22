@@ -1,6 +1,6 @@
 class MonsterFly extends ObjetEnnemi{
     /**
-     *
+     * Un monstre qui vole et fait des allez -retours
      * @param {Tableau} scene
      * @param x
      * @param y
@@ -10,7 +10,7 @@ class MonsterFly extends ObjetEnnemi{
         //pas de gravité
         this.body.allowGravity=false;
 
-        //gestion de la taille
+        //gestion de la taille...car attention notre png est très grand (et c'est maaaaal car pas optimisé)
         this.setDisplaySize(64,64);
 
         //on réduit un peu la zone de hit
@@ -29,7 +29,7 @@ class MonsterFly extends ObjetEnnemi{
         this.minY=y-5;
         this.maxY=y+5;
 
-        // on applique les propriété du début de l'animation
+        // on applique les propriétés du début de l'animation
         this.x=this.minX;
         this.y=this.minY;
         this.alpha=0;

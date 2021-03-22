@@ -1,10 +1,12 @@
-class Tableau07 extends Tableau{
+class TableauBirdSpriteJson extends Tableau{
 
     preload() {
         super.preload();
         this.load.image('star', 'assets/star.png');
-        this.load.image('monster-fly', 'assets/monster-fly.png');
         this.load.image('ground', 'assets/platform.png');
+
+        //précharge le spritesheet
+        this.load.atlas('bird', 'assets/bird/bird.png', 'assets/bird/bird.json');
 
     }
     create() {
@@ -29,21 +31,26 @@ class Tableau07 extends Tableau{
             plateforme.setBounceX(1);
             plateforme.setCollideWorldBounds(true);
             plateforme.setVelocityX(100)
+            plateforme.body.setMaxVelocityX(100);
             plateforme.setImmovable(true);
+            //plateforme.body.setMaxVelocityY(0)
             plateforme.setFriction(1);
         }
 
         //le joueur rebondit sur les plateformes
         this.physics.add.collider(this.player,this.platforms);
 
-        //nos monstres volants
-        new MonsterFly(this,400,100);
-        new MonsterFly(this,600,300);
 
 
+
+        //on place nos oiseaux
+        this.bird1=new Bird(this,400,200);
+        this.bird2=new Bird(this,400,300);
+        //nos oiseaux se font pousser par les plateformes
+        this.physics.add.collider(this.bird1,this.platforms);
+        this.physics.add.collider(this.bird2,this.platforms);
 
     }
-
 
 
 }

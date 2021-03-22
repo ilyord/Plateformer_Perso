@@ -9,9 +9,6 @@ class Tableau02 extends Tableau{
         super.create();
 
         //un groupe d'étoiles
-
-        
-       
         this.stars=this.physics.add.group();
         this.stars.create(100,0,"star").setCollideWorldBounds(true).setBounce(0.4);
         this.stars.create(200,0,"star").setCollideWorldBounds(true).setBounce(0.5);
@@ -20,13 +17,6 @@ class Tableau02 extends Tableau{
         this.stars.create(500,0,"star").setCollideWorldBounds(true).setBounce(0.8);
         this.stars.create(600,0,"star").setCollideWorldBounds(true).setBounce(0.9);
         this.stars.create(700,0,"star").setCollideWorldBounds(true).setBounce(1);
-
-        for (let i = 0;i < 1000; i++){
-
-            this.stars.create(i,0,"star").setCollideWorldBounds(true).setBounce(0.4);
-
-        }
-
         //si le joueur touche une étoile dans le groupe...
         this.physics.add.overlap(this.player, this.stars, this.ramasserEtoile, null, this);
 
