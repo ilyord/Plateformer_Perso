@@ -1,6 +1,6 @@
 
-let width=14*64; //896;
-let height=7*64; //448;
+let width=20*64; //1280;
+let height=10*64; //780;
 
 let config = {
     type: Phaser.AUTO,
@@ -9,26 +9,14 @@ let config = {
     physics: {
         default: 'arcade',
         arcade: {
-            gravity: { y: 100*3 },
+            gravity: { y: 200 },
             debug: false,
         }
     },
     scene: [
         new Ui(),
 
-        new TableauTiled("Tiled pour les gros gros levels"),
-        new Tableau00("Des étoiles"),
-        new Tableau01("Des plateformes"),
-        new Tableau02("Plein d'étoiles"),
-        new Tableau03("Des plateformes qui bougent"),
-        new Tableau04("Jouer avec les groupes"),
-        new Tableau05("Extend un tableau"),
-        new Tableau06("Un monstre!"),
-        new Tableau07("Un monstre volant!"),
-        new Tableau08("Un plateau qui sort du cadre"),
-        new TableauBirdSpriteJson("Un oiseau! "),
-
-
+        new TableauTiled("Sunless Letter"),
     ],
     width: width,
     height: height,

@@ -12,13 +12,19 @@ class TableauTiled extends Tableau{
         super.preload();
         // ------pour TILED-------------
         // nos images
-        this.load.image('tiles', 'assets/tilemaps/tableauTiledTileset.png');
+        this.load.image('tiles', 'assets/tilemaps/Plateformes-lineless.png');
         //les données du tableau qu'on a créé dans TILED
-        this.load.tilemapTiledJSON('map', 'assets/tilemaps/tableauTiled.json');
+        this.load.tilemapTiledJSON('map', 'assets/tilemaps/tableauTiled1.json');
 
         // -----et puis aussi-------------
-        this.load.image('monster-fly', 'assets/monster-fly.png');
-        this.load.image('night', 'assets/night.jpg');
+        this.load.image('AA', 'assets/B.png');
+        this.load.image('FOND', 'assets/Fond+EL.png');
+        this.load.image('EP', 'assets/EP.png');
+        this.load.image('S1', 'assets/S1.png');
+        this.load.image('S2', 'assets/S2.png');
+        this.load.image('S3', 'assets/S3.png');
+
+
         //atlas de texture généré avec https://free-tex-packer.com/app/
         //on y trouve notre étoiles et une tête de mort
         this.load.atlas('particles', 'assets/particles/particles.png', 'assets/particles/particles.json');
@@ -34,11 +40,11 @@ class TableauTiled extends Tableau{
         //notre map
         this.map = this.make.tilemap({ key: 'map' });
         //nos images qui vont avec la map
-        this.tileset = this.map.addTilesetImage('tableauTiledTileset', 'tiles');
+        this.tileset = this.map.addTilesetImage('Plateformes-lineless', 'tiles');
 
         //on agrandit le champ de la caméra du coup
-        let largeurDuTableau=this.map.widthInPixels;
-        let hauteurDuTableau=this.map.heightInPixels;
+        let largeurDuTableau = 10240
+        let hauteurDuTableau= 1560
         this.physics.world.setBounds(0, 0, largeurDuTableau,  hauteurDuTableau);
         this.cameras.main.setBounds(0, 0, largeurDuTableau, hauteurDuTableau);
         this.cameras.main.startFollow(this.player, true, 1, 1);
@@ -199,27 +205,53 @@ class TableauTiled extends Tableau{
 
 
         //---------- parallax ciel (rien de nouveau) -------------
-
         //on change de ciel, on fait une tileSprite ce qui permet d'avoir une image qui se répète
         this.sky=this.add.tileSprite(
             0,
             0,
             this.sys.canvas.width,
             this.sys.canvas.height,
-            'night'
+            'FOND'
         );
         this.sky2=this.add.tileSprite(
             0,
             0,
             this.sys.canvas.width,
             this.sys.canvas.height,
-            'night'
+            'EP'
+        );
+        this.sky3 = this.add.tileSprite(
+            0,
+            0,
+            this.sys.canvas.width,
+            this.sys.canvas.height,
+            'S1'
+        );
+        this.sky4 = this.add.tileSprite(
+            0,
+            0,
+            this.sys.canvas.width,
+            this.sys.canvas.height,
+            'S2'
+        );
+        this.sky5 = this.add.tileSprite(
+            0,
+            0,
+            this.sys.canvas.width,
+            this.sys.canvas.height,
+            'S3'
         );
         this.sky.setOrigin(0,0);
-        this.sky2.setOrigin(0,0);
+        this.sky2.setOrigin(0, 0);
+        this.sky3.setOrigin(0, 0);
+        this.sky4.setOrigin(0, 0);
+        this.sky5.setOrigin(0, 0);
         this.sky.setScrollFactor(0);//fait en sorte que le ciel ne suive pas la caméra
         this.sky2.setScrollFactor(0);//fait en sorte que le ciel ne suive pas la caméra
-        this.sky2.blendMode=Phaser.BlendModes.ADD;
+        this.sky3.setScrollFactor(0);
+        this.sky4.setScrollFactor(0);
+        this.sky5.setScrollFactor(0);
+        //this.sky2.blendMode=Phaser.BlendModes.ADD;
 
         //----------collisions---------------------
 
@@ -237,17 +269,16 @@ class TableauTiled extends Tableau{
         let z=1000; //niveau Z qui a chaque fois est décrémenté.
         debug.setDepth(z--);
         this.blood.setDepth(z--);
-        monstersContainer.setDepth(z--);
         this.stars.setDepth(z--);
         starsFxContainer.setDepth(z--);
         this.devant.setDepth(z--);
-        this.solides.setDepth(z--);
+        this.solides.setDepth(z = 1000);
         this.laveFxContainer.setDepth(z--);
         this.lave.setDepth(z--);
+        monstersContainer.setDepth(z = 1000);
         this.player.setDepth(z--);
         this.derriere.setDepth(z--);
-        this.sky2.setDepth(z--);
-        this.sky.setDepth(z--);
+
 
     }
 
@@ -285,10 +316,16 @@ class TableauTiled extends Tableau{
      */
     moveParallax(){
         //le ciel se déplace moins vite que la caméra pour donner un effet paralax
-        this.sky.tilePositionX=this.cameras.main.scrollX*0.6;
-        this.sky.tilePositionY=this.cameras.main.scrollY*0.6;
-        this.sky2.tilePositionX=this.cameras.main.scrollX*0.7+100;
-        this.sky2.tilePositionY=this.cameras.main.scrollY*0.7+100;
+        this.sky.tilePositionX = this.cameras.main.scrollX;
+        this.sky.tilePositionY = this.cameras.main.scrollX * 0;
+        this.sky2.tilePositionX = this.cameras.main.scrollX;
+        this.sky2.tilePositionY = this.cameras.main.scrollX * 0;
+        this.sky3.tilePositionX = this.cameras.main.scrollX * 0.5;
+        this.sky3.tilePositionY = this.cameras.main.scrollX * 0;
+        this.sky4.tilePositionX = this.cameras.main.scrollX * 0.6;
+        this.sky4.tilePositionY = this.cameras.main.scrollX * 0;
+        this.sky5.tilePositionX = this.cameras.main.scrollX * 0.7;
+        this.sky5.tilePositionY = this.cameras.main.scrollX * 0;
     }
 
 

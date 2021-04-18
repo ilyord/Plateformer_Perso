@@ -15,7 +15,6 @@ class Tableau extends Phaser.Scene{
      * Par défaut on charge un fond et le player
      */
     preload(){
-        this.load.image('sky', 'assets/sky.png');
         this.load.image('blood', 'assets/blood.png');
         this.load.image('spike', 'assets/spike.png');
         this.load.spritesheet('player',
@@ -39,7 +38,7 @@ class Tableau extends Phaser.Scene{
          * Le joueur
          * @type {Player}
          */
-        this.player=new Player(this,0,0);
+        this.player=new Player(this,0,300);
         this.player.setMaxVelocity(800,800); //évite que le player quand il tombe ne traverse des plateformes
         this.blood=this.add.sprite(this.sys.canvas.width/2,this.sys.canvas.height/2,"blood")
         this.blood.displayWidth=64;
@@ -88,7 +87,7 @@ class Tableau extends Phaser.Scene{
         ui.gagne();
 
         //va lister tous les objets de la scène pour trouver les étoies et vérifier si elles sont actives
-        /*
+        
         let totalActive=0;
         for(let child of this.children.getChildren()){
             if(child.texture && child.texture.key==="star"){
@@ -97,10 +96,10 @@ class Tableau extends Phaser.Scene{
                 }
             }
         }
-        if(totalActive===0){
+        if(totalActive===1){
             this.win();
         }
-        */
+        
     }
 
     /**
@@ -128,7 +127,7 @@ class Tableau extends Phaser.Scene{
         if(monster.isDead !== true){ //si notre monstre n'est pas déjà mort
             if(
                 // si le player descend
-                player.body.velocity.y > 0
+                player.body.velocity.y > 100000
                 // et si le bas du player est plus haut que le monstre
                 && player.getBounds().bottom < monster.getBounds().top+30
 
@@ -185,43 +184,10 @@ class Tableau extends Phaser.Scene{
      * Quand on a gagné
      */
     win(){
-        Tableau.suivant();
+        
     }
 
-    /**
-     * Va au tableau suivant
-     */
-    static suivant(){
-        let ceSeraLaSuivante=false;
-        let nextScene=null;
-        if(Tableau.current){
-            for(let sc of game.scene.scenes){
-                if(sc.scene.key !== "ui"){
-                    if(!nextScene){
-                        if(ceSeraLaSuivante){
-                            nextScene=sc;
-                        }
-                        if(sc.scene.key === Tableau.current.scene.key){
-                            ceSeraLaSuivante=true;
-                        }
-                    }
-                }
-            }
-        }
-        if(!nextScene){
-            nextScene = game.scene.scenes[0];
-        }
-        Tableau.goTableau(nextScene);
-    }
-
-    static goTableau(tableau){
-        if(Tableau.current){
-            Tableau.current._destroy();
-        }
-        game.scene.start(tableau);
-    }
-
-
+  
 }
 
 /**
