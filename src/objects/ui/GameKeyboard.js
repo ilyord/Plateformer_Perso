@@ -42,7 +42,7 @@ class GameKeyboard extends Phaser.GameObjects.Container{
                     break;
 
                 case "ArrowDown":
-                    Tableau.current.player.directionY=;
+                    Tableau.current.player.directionY=0;
                     break;
             }
         });
