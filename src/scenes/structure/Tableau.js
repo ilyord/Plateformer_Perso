@@ -15,11 +15,11 @@ class Tableau extends Phaser.Scene{
      * Par défaut on charge un fond et le player
      */
     preload(){
-        this.load.image('blood', 'assets/blood.png');
+        this.load.image('smoke', 'assets/smoke.png');
         this.load.image('spike', 'assets/spike.png');
         this.load.spritesheet('player',
-            'assets/player.png',
-            { frameWidth: 32, frameHeight: 48  }
+            'assets/Aplayer.png',
+            { frameWidth:31 , frameHeight: 91  }
         );
     }
     create(){
@@ -40,7 +40,7 @@ class Tableau extends Phaser.Scene{
          */
         this.player=new Player(this,0,300);
         this.player.setMaxVelocity(800,800); //évite que le player quand il tombe ne traverse des plateformes
-        this.blood=this.add.sprite(this.sys.canvas.width/2,this.sys.canvas.height/2,"blood")
+        this.blood = this.add.sprite(this.sys.canvas.width / 2, this.sys.canvas.height / 2,"smoke")
         this.blood.displayWidth=64;
         this.blood.displayHeight=64;
         this.blood.visible=false;
@@ -125,19 +125,16 @@ class Tableau extends Phaser.Scene{
     hitMonster(player, monster){
         let me=this;
         if(monster.isDead !== true){ //si notre monstre n'est pas déjà mort
-            if(
+            if (
                 // si le player descend
-                player.body.velocity.y > 100000
+                player.body.velocity.y > 1000000000
                 // et si le bas du player est plus haut que le monstre
-                && player.getBounds().bottom < monster.getBounds().top+30
+                && player.getBounds().bottom < monster.getBounds().top + 50
 
             ){
                 ui.gagne();
                 monster.isDead=true; //ok le monstre est mort
                 monster.disableBody(true,true);//plus de collisions
-                this.saigne(monster,function(){
-                    //à la fin de la petite anim...ben il se passe rien :)
-                })
                 //notre joueur rebondit sur le monstre
                 player.directionY=500;
             }else{

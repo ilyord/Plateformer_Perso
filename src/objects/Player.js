@@ -9,8 +9,8 @@ class Player extends Phaser.Physics.Arcade.Sprite{
         this.setGravityY(800);
         this.setFriction(100,100);
 
-        this.setBodySize(this.body.width-6,this.body.height-10);
-        this.setOffset(3, 10);
+        this.setBodySize(18,85);
+        this.setOffset(+7,+7);
 
         this.anims.create({
             key: 'left',

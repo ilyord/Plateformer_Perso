@@ -1,12 +1,14 @@
 {
   "ExpandedNodes": [
     "",
+    "\\assets",
     "\\src",
     "\\src\\objects",
     "\\src\\objects\\ui",
     "\\src\\scenes",
-    "\\src\\scenes\\structure"
+    "\\src\\scenes\\structure",
+    "\\vendor"
   ],
-  "SelectedNode": "\\src\\scenes\\structure\\Tableau.js",
+  "SelectedNode": "\\main.js",
   "PreviewInSolutionExplorer": false
 }

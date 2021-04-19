@@ -14,10 +14,17 @@ class MonsterFly extends ObjetEnnemi{
         this.setDisplaySize(100,100);
 
         //on réduit un peu la zone de hit
-        this.setBodySize(this.body.width-35,this.body.height-35);
-        this.setOffset(18, 18);
+        this.setBodySize(this.body.width-60,this.body.height-95);
+        this.setOffset(30, 60);
 
         //définir les propriété que l'on va utiliser dans notre animation
+
+        /*rotate
+        this.originalAngle = body.rotation;
+        this.minAngle = 0;
+        this.maxAngle = 360;*/
+  
+
 
         // X
         this.originalX=x;
@@ -31,7 +38,8 @@ class MonsterFly extends ObjetEnnemi{
 
         // on applique les propriétés du début de l'animation
         this.x=this.minX;
-        this.y=this.minY;
+        this.y = this.minY;
+        //this.body.rotation = this.minAngle;//
         this.alpha=0.9;
         let me=this;
 
@@ -53,24 +61,27 @@ class MonsterFly extends ObjetEnnemi{
 
     }
 
+
     start(){
         this.scene.tweens.add({
             targets: this,
             x: {
                 from: this.minX,
-                to:this.maxX,
+                to: this.maxX,
                 duration: 60,
-                ease: 'Sine.easeInOut',
                 yoyo: -1,
                 repeat:-1,
-                flipX:false,
+                flipX: false,
             },
             y: {
                 from: this.minY,
-                to:this.maxY,
-                duration: 10000,
+                to: this.maxY,
+                //from: this.minAngle,
+                //tp: this.maxAngle,
+                duration: 12000,
                 yoyo: 0,
-                repeat:-1
+                repeat: -1,
+
             }
         });
     }
