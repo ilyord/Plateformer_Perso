@@ -1,19 +1,19 @@
 Le jeu est visible sur https://ilyord.github.io/Plateformer_Perso/
 
-#ALPHA 1.0
+#ALPHA 1.0#
 
-##Features manquantes
+##Features manquantes##
 
-####Animation
+####Animation####
 
 -Personnage (marche/saut)
 -Astéroïdes (rotation)
 
-####Gameplay
+####Gameplay####
 
 -Mouvements complexes du personnage (saut et inertie)
 
-####Divers
+####Divers####
 
 -VFX
 
