@@ -5,13 +5,21 @@ class MonsterFly extends ObjetEnnemi{
      * @param x
      * @param y
      */
-    constructor(scene, x, y) {
+    constructor(scene, x, y, rotate) {
         super(scene, x, y, "AA");
+
+
+        this.rotation=Math.random()*5;
+       
         //pas de gravité
         this.body.allowGravity=false;
+        this.rotateSpeed=Math.random()*30-20;
+        this.rotateSpeed=this.rotateSpeed/100;
 
         //gestion de la taille...car attention notre png est très grand (et c'est maaaaal car pas optimisé)
-        this.setDisplaySize(100,100);
+        //this.setDisplaySize(100,100);
+        let sz=Math.random()*50+50;
+        this.setDisplaySize(sz,sz);
 
         //on réduit un peu la zone de hit
         this.setBodySize(this.body.width-60,this.body.height-95);
@@ -19,11 +27,7 @@ class MonsterFly extends ObjetEnnemi{
 
         //définir les propriété que l'on va utiliser dans notre animation
 
-        /*rotate
-        this.originalAngle = body.rotation;
-        this.minAngle = 0;
-        this.maxAngle = 360;*/
-  
+
 
 
         // X
@@ -39,7 +43,7 @@ class MonsterFly extends ObjetEnnemi{
         // on applique les propriétés du début de l'animation
         this.x=this.minX;
         this.y = this.minY;
-        //this.body.rotation = this.minAngle;//
+        this.body.rotation = this.minAngle;
         this.alpha=0.9;
         let me=this;
 
@@ -58,11 +62,12 @@ class MonsterFly extends ObjetEnnemi{
                     me.start();
                 }
             })
+            
 
     }
 
-
     start(){
+        
         this.scene.tweens.add({
             targets: this,
             x: {
@@ -76,14 +81,16 @@ class MonsterFly extends ObjetEnnemi{
             y: {
                 from: this.minY,
                 to: this.maxY,
-                //from: this.minAngle,
-                //tp: this.maxAngle,
                 duration: 12000,
                 yoyo: 0,
                 repeat: -1,
-
             }
         });
+        
+    }
+
+    loop(){
+            this.rotation+=this.rotateSpeed;
     }
 
 }

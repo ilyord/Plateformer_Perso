@@ -89,12 +89,14 @@ class TableauTiled extends Tableau{
 
         //----------les monstres volants (objets tiled) ---------------------
 
-        let monstersContainer=this.add.container();
+        this.asteroidsContainer=this.add.container();
         this.flyingMonstersObjects = this.map.getObjectLayer('flyingMonsters')['objects'];
+        this.asteroides=[]
         // On crée des montres volants pour chaque objet rencontré
-        this.flyingMonstersObjects.forEach(monsterObject => {
-            let monster=new MonsterFly(this,monsterObject.x,monsterObject.y);
-            monstersContainer.add(monster);
+        this.flyingMonstersObjects.forEach(asteroidsObject => {
+            let asteroide=new MonsterFly(this,asteroidsObject.x,asteroidsObject.y);
+            this.asteroidsContainer.add(asteroide);
+            this.asteroides.push(asteroide);
         });
 
         //--------effet sur la lave------------------------
@@ -275,7 +277,7 @@ class TableauTiled extends Tableau{
         this.solides.setDepth(z = 1000);
         this.laveFxContainer.setDepth(z--);
         this.lave.setDepth(z--);
-        monstersContainer.setDepth(z = 1000);
+        this.asteroidsContainer.setDepth(z = 1000);
         this.player.setDepth(z--);
         this.derriere.setDepth(z--);
 
@@ -332,6 +334,11 @@ class TableauTiled extends Tableau{
     update(){
         super.update();
         this.moveParallax();
+
+        
+        for(let ast of this.asteroides){
+            ast.loop();
+        }
 
         //optimisation
         //teste si la caméra a bougé
