@@ -27,15 +27,21 @@ class MonsterFly extends ObjetEnnemi {
 
     }
 
-    /*destroy() {
-        this.y=300;
-        {
-            //this.setActive(false);
-            //this.setVisible(false);
+
+   /*update() {
+    if(this.y>3000){
+        this.destroy();
+        console.log("bbb");
+    }
+}
+
+    destroy() {
+            this.setActive(false);
+            this.setVisible(false);
             console.log("aaa");
             this.body.disableBody(true,true);
-        }
-    }*/
+        }*/
+
 
     loop() {
         this.rotation += this.rotateSpeed;
