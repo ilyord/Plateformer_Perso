@@ -7,7 +7,7 @@ class MonsterFly extends ObjetEnnemi {
     constructor(scene, x, y) {
         super(scene, x, y, "AA");
 
-        //Taille
+        //Taille 
         let sz = Math.random() * 50 + 30;
         this.setDisplaySize(sz, sz);
         this.size = sz

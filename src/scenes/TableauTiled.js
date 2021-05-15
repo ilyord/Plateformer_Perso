@@ -8,6 +8,11 @@ class TableauTiled extends Tableau{
      * Je vous conseille aussi ce tuto qui propose quelques alternatives (la manière dont son découpées certaines maisons notamment) :
      * https://medium.com/@michaelwesthadley/modular-game-worlds-in-phaser-3-tilemaps-1-958fc7e6bbd6
      */
+    constructor()
+    {
+        super("OuterSpace");
+    }
+
     preload() {
         super.preload();
         // ------pour TILED-------------

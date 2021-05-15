@@ -5,7 +5,7 @@ class Player extends Phaser.Physics.Arcade.Sprite{
         scene.physics.add.existing(this)
 
         this.setCollideWorldBounds(true)
-        this.setBounce(0);
+        this.setBounce(0,0);
         this.setGravityY(800);
         this.setFriction(100,100);
 
@@ -27,6 +27,11 @@ class Player extends Phaser.Physics.Arcade.Sprite{
         });
         this.anims.create({
             key: 'turn',
+            frames: [ { key: 'player', frame: 4 } ],
+            frameRate: 20
+        });
+        this.anims.create({
+            key: 'inAir',
             frames: [ { key: 'player', frame: 4 } ],
             frameRate: 20
         });
@@ -63,11 +68,19 @@ class Player extends Phaser.Physics.Arcade.Sprite{
                 this.setVelocityX(-300);
                 this.anims.play('left', true);
                 break;
-            case this._directionX>0:
 
+//---------------------Préparation pour animation en l'air---------------------------------//
+            case this._directionY<0:
+                this.anims.play('inAir', true);
+                break;
+//-----------------------------------------------------------------------------------------//
+
+
+            case this._directionX>0:
                 this.setVelocityX(300);
                 this.anims.play('right', true);
                 break;
+
             default:
                 this.setVelocityX(0);
                 this.anims.play('turn');
@@ -75,9 +88,18 @@ class Player extends Phaser.Physics.Arcade.Sprite{
 
         if (this._directionY < 0) {
             if (this.body.blocked.down || this.body.touching.down) {
-                this.setVelocityY(-650);
+                this.setVelocityY(-650);}
+
             }
-        }
+        /*
+        if (this._directionX < 0) {
+            if(!this.body.blocked.down || !this.body.touching.down){
+                this.setVelocityX(-300)}
+            }
+        if (this._directionX > 0) {
+            if(!this.body.blocked.down || !this.body.touching.down){
+                this.setVelocityX(300)}
+            } */
 
     }
 
