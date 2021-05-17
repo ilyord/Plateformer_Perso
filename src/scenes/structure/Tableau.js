@@ -39,7 +39,7 @@ class Tableau extends Phaser.Scene{
          * @type {Player}
          */
         this.player=new Player(this,0,300);
-        this.player.setMaxVelocity(800,800); //évite que le player quand il tombe ne traverse des plateformes
+        this.player.setMaxVelocity(800,900); //évite que le player quand il tombe ne traverse des plateformes
         this.blood = this.add.sprite(this.sys.canvas.width / 2, this.sys.canvas.height / 2,"smoke")
         this.blood.displayWidth=64;
         this.blood.displayHeight=64;
@@ -60,13 +60,13 @@ class Tableau extends Phaser.Scene{
         this.physics.pause();
         this.cameras.main.shake(2000,0.0080,true);
         me.blood.visible=true;
-        me.blood.rotation = Phaser.Math.Between(0,10);
+        me.blood.rotation = Phaser.Math.Between(0,100);
         me.blood.x=object.x;
         me.blood.y=object.y;
         me.tweens.add({
             targets:me.blood,
-            duration:400,
-            yoyo: 1,
+            duration:600,
+            yoyo: -1,
             displayHeight:{
                 from:40,
                 to:150,

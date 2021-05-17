@@ -23,24 +23,9 @@ class MonsterFly extends ObjetEnnemi {
         this.setOffset(30, 60);
 
         //Speed
-        this.body.setMaxVelocity(Math.random() * 10 - 5, Math.random() * 300 - 200)
+        this.body.setMaxVelocity(Math.random() * 10 - 5, Math.random() * 300 - 100)
 
     }
-
-
-   /*update() {
-    if(this.y>3000){
-        this.destroy();
-        console.log("bbb");
-    }
-}
-
-    destroy() {
-            this.setActive(false);
-            this.setVisible(false);
-            console.log("aaa");
-            this.body.disableBody(true,true);
-        }*/
 
 
     loop() {

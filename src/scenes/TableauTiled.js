@@ -92,7 +92,7 @@ class TableauTiled extends Tableau{
         });
 
 
-        //----------les monstres volants (objets tiled) ---------------------
+        //----------Asteroides (objets tiled) ---------------------
 
         this.asteroidsContainer=this.add.container();
         this.flyingMonstersObjects = this.map.getObjectLayer('flyingMonsters')['objects'];
@@ -191,7 +191,7 @@ class TableauTiled extends Tableau{
 
 
         //----------débug---------------------
-        
+
         //pour débugger les collisions sur chaque layer
         let debug=this.add.graphics().setAlpha(this.game.config.physics.arcade.debug?0.75:0);
         if(this.game.config.physics.arcade.debug === false){
@@ -340,10 +340,20 @@ class TableauTiled extends Tableau{
         super.update();
         this.moveParallax();
 
-        
+
         for(let ast of this.asteroides){
             ast.loop();
+            /*if(this.asteroides.y>300){
+                this.asteroides.setPosition(0,-10);
+                console.log("bbb");
+            }*/
         }
+
+
+
+        //console.log(game.input.mousePointer.x,
+        //game.input.mousePointer.y);
+
 
         //optimisation
         //teste si la caméra a bougé
@@ -356,9 +366,5 @@ class TableauTiled extends Tableau{
             this.optimizeDisplay();
         }
     }
-
-
-
-
 }
 

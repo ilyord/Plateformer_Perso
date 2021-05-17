@@ -41,6 +41,28 @@ class Player extends Phaser.Physics.Arcade.Sprite{
 
     }
 
+    /**
+     * Direction du saut
+     * @param targetX
+     * @param targetY
+     */
+    jumpTo(targetX,targetY){
+        console.log(targetX,targetY);
+        Tableau.current.tweens.timeline({
+            targets: this.body.velocity,
+            ease: 'Bounce.easeInOut',       // 'Cubic', 'Elastic', 'Bounce', 'Back'
+            duration: 200,
+            loop: 0,
+            tweens: [
+                {
+                    targets: this.body.velocity,
+                    x: 3000,
+                    y: -3000
+                }
+            ]
+        });
+    }
+
     set directionX(value){
         this._directionX=value;
     }

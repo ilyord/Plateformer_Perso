@@ -8,6 +8,12 @@ class GameKeyboard extends Phaser.GameObjects.Container{
 
         this.cursors = scene.input.keyboard.createCursorKeys();
 
+        scene.input.on('pointerdown', function(pointer){
+            if (Tableau.current){
+                Tableau.current.player.jumpTo(pointer.x,pointer.y);
+            }
+        });
+
         scene.input.keyboard.on('keydown', function(kevent){
             switch (kevent.key){
 
@@ -25,10 +31,10 @@ class GameKeyboard extends Phaser.GameObjects.Container{
 
                 case "ArrowDown":
                     if (!Tableau.current.player.body.onFloor()){
-                        Tableau.current.player.setVelocityY(+2000);
+                        Tableau.current.player.setVelocityY(+900);
                         Tableau.current.player.setGravityY(2000);
-                        Tableau.current.player.setBounceY(2);
-                        Tableau.current.player.setBounceX(1);
+                        Tableau.current.player.setBounceY(2.2);
+                        Tableau.current.player.setBounceX(1.5);
                         if (Tableau.current.player.body.onFloor()){
                             console.log("Check_collision")
                             Tableau.current.cameras.main.shake(200,0.0020,true);
@@ -45,6 +51,8 @@ class GameKeyboard extends Phaser.GameObjects.Container{
             player.anims.play('land')       // play landing animation
         }
     }*/
+
+
         scene.input.keyboard.on('keyup', function(kevent){
             switch (kevent.key){
                 case "ArrowRight":
@@ -73,3 +81,5 @@ class GameKeyboard extends Phaser.GameObjects.Container{
 
 
 }
+
+
