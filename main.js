@@ -14,8 +14,8 @@ let config = {
         }
     },
     scene: [
-        new Ui(),
         new Welcome("OuterSpace"),
+        new Ui(),
         new TableauTiled("Sunless Letter"),
     ],
     width: width,

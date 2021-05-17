@@ -90,7 +90,7 @@ class Player extends Phaser.Physics.Arcade.Sprite{
             if (this.body.blocked.down || this.body.touching.down) {
                 this.setVelocityY(-650);}
 
-        }
+            }
         /*
         if (this._directionX < 0) {
             if(!this.body.blocked.down || !this.body.touching.down){
@@ -101,17 +101,17 @@ class Player extends Phaser.Physics.Arcade.Sprite{
                 this.setVelocityX(300)}
             } */
 
-        /*----------------------------MECHA_TEST---------------------------------------//
+        //----------------------------MECHA_TEST---------------------------------------//
 
         var GameState = function(game) {
         };
 
-        /* Load images and sounds
-                GameState.prototype.preload = function() {
-                    this.game.load.image('bullet', '/assets/gfx/bullet.png');
-                    this.game.load.image('ground', '/assets/gfx/ground.png');
-                    this.game.load.spritesheet('explosion', '/assets/gfx/explosion.png', 128, 128);
-                };
+/* Load images and sounds
+        GameState.prototype.preload = function() {
+            this.game.load.image('bullet', '/assets/gfx/bullet.png');
+            this.game.load.image('ground', '/assets/gfx/ground.png');
+            this.game.load.spritesheet('explosion', '/assets/gfx/explosion.png', 128, 128);
+        };*/
 
 // Setup the example
         GameState.prototype.create = function() {
@@ -288,7 +288,7 @@ class Player extends Phaser.Physics.Arcade.Sprite{
         };
 
         var game = new Phaser.Game(848, 450, Phaser.AUTO, 'game');
-        game.state.add('game', GameState, true);*/
+        game.state.add('game', GameState, true);
 
     }
 

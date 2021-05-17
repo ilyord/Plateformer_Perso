@@ -13,12 +13,10 @@ class GameKeyboard extends Phaser.GameObjects.Container{
 
                 case "ArrowRight":
                     Tableau.current.player.directionX=1;
-                    Tableau.current.player.setVelocityX(300);
                     break;
 
                 case "ArrowLeft":
                     Tableau.current.player.directionX=-1;
-                    Tableau.current.player.setVelocityX(-300);
                     break;
 
                 case "ArrowUp":
@@ -27,10 +25,14 @@ class GameKeyboard extends Phaser.GameObjects.Container{
 
                 case "ArrowDown":
                     if (!Tableau.current.player.body.onFloor()){
-                        Tableau.current.player.setVelocityY(2000);
+                        Tableau.current.player.setVelocityY(+2000);
                         Tableau.current.player.setGravityY(2000);
-                        Tableau.current.player.setBounceY(1.5)
-                        Tableau.current.player.setBounceX(1)
+                        Tableau.current.player.setBounceY(2);
+                        Tableau.current.player.setBounceX(1);
+                        if (Tableau.current.player.body.onFloor()){
+                            console.log("Check_collision")
+                            Tableau.current.cameras.main.shake(200,0.0020,true);
+                        }
                     }
                     else
                     break;
@@ -46,29 +48,11 @@ class GameKeyboard extends Phaser.GameObjects.Container{
         scene.input.keyboard.on('keyup', function(kevent){
             switch (kevent.key){
                 case "ArrowRight":
-                    if (!Tableau.current.player.body.onFloor()){
-                        Tableau.current.player.directionX=1;
-                        console.log("inAir_Right")
-                    }
-                    if (Tableau.current.player.body.onFloor()){
-                        Tableau.current.player.setVelocityX(0);
-                        Tableau.current.player.directionX=0;
-                        console.log("onGround_Right")}
-                    else
+                    Tableau.current.player.directionX=0;
                     break;
 
-
-
                 case "ArrowLeft":
-                    if (!Tableau.current.player.body.onFloor()){
-                        console.log("inAir_Left")
-                        Tableau.current.player.directionX=-1;
-                    }
-                    if (Tableau.current.player.body.onFloor()){
-                        Tableau.current.player.setVelocityX(0);
-                        Tableau.current.player.directionX=0;
-                        console.log("onGround_Left")}
-                    else
+                    Tableau.current.player.directionX=0;
                     break;
 
                 case "ArrowUp":

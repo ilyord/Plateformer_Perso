@@ -10,17 +10,6 @@ class Ui extends Phaser.Scene{
     create (){
         console.log("create Ui")
 
-        this.score=0;
-        /**
-         * Le champ texte du score
-         * @type {Phaser.GameObjects.Text}
-         * @private
-         */
-        this._scoreText = this.add.text(16, 16, '...', {
-            font:'32px "Hanalei Fill"',
-            fill: '#fff'
-        });
-
         /**
          * Le champ texte avec la clé du tableau
          * @type {Phaser.GameObjects.Text}
@@ -93,7 +82,6 @@ class Ui extends Phaser.Scene{
     gagne(points=10)
     {
         this.score+=points;
-        this._scoreText.setText('Score: ' + this.score);
     }
     update(){
         if(Tableau.current){

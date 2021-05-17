@@ -50,7 +50,6 @@ class Tableau extends Phaser.Scene{
         super.update();
         this.player.move();
     }
-
     /**
      *
      * @param {Sprite} object Objet qui saigne
@@ -58,20 +57,23 @@ class Tableau extends Phaser.Scene{
      */
     saigne(object,onComplete){
         let me=this;
+        this.physics.pause();
+        this.cameras.main.shake(2000,0.0080,true);
         me.blood.visible=true;
-        me.blood.rotation = Phaser.Math.Between(0,6);
+        me.blood.rotation = Phaser.Math.Between(0,10);
         me.blood.x=object.x;
         me.blood.y=object.y;
         me.tweens.add({
             targets:me.blood,
-            duration:200,
+            duration:400,
+            yoyo: 1,
             displayHeight:{
                 from:40,
-                to:70,
+                to:150,
             },
             displayWidth:{
                 from:40,
-                to:70,
+                to:150,
             },
             onComplete: function () {
                 me.blood.visible=false;
@@ -127,14 +129,15 @@ class Tableau extends Phaser.Scene{
         if(monster.isDead !== true){ //si notre monstre n'est pas déjà mort
             if (
                 // si le player descend
-                player.body.velocity.y > 1000000000
+                player.body.velocity.y > 1000000
                 // et si le bas du player est plus haut que le monstre
                 && player.getBounds().bottom < monster.getBounds().top + 50
 
             ){
+
                 ui.gagne();
                 monster.isDead=true; //ok le monstre est mort
-                monster.disableBody(true,true);//plus de collisions
+                monster.disableBody(false,false);//plus de collisions
                 //notre joueur rebondit sur le monstre
                 player.directionY=500;
             }else{
@@ -152,9 +155,11 @@ class Tableau extends Phaser.Scene{
      * - ressuscite le player
      * - redémarre le tableau
      */
+
     playerDie(){
         let me=this;
         if(!me.player.isDead) {
+
             me.player.isDead = true;
             me.player.visible = false;
             //ça saigne...
@@ -163,7 +168,13 @@ class Tableau extends Phaser.Scene{
                 me.blood.visible = false;
                 me.player.anims.play('turn');
                 me.player.isDead = false;
-                me.scene.restart();
+
+                me.cameras.main.fadeOut(1000, 0, 0, 0)
+                me.cameras.main.once(Phaser.Cameras.Scene2D.Events.FADE_OUT_COMPLETE, (cam, effect) =>
+                {
+                    me.scene.restart();
+                })
+
             })
         }
     }
