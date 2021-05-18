@@ -6,11 +6,18 @@ class GameKeyboard extends Phaser.GameObjects.Container{
         super(scene, x, y)
         scene.add.existing(this);
 
+
         this.cursors = scene.input.keyboard.createCursorKeys();
 
+        //sprite la ou clic la souris pour chopper les corrdonnée absolue
+
         scene.input.on('pointerdown', function(pointer){
+
             if (Tableau.current){
-                Tableau.current.player.jumpTo(pointer.x,pointer.y);
+                if(Tableau.current.player.body.onFloor()) {
+                    Tableau.current.player.jumpTo(pointer.x+(Tableau.current.player.body.x/2), pointer.y+(Tableau.current.player.body.y/2));
+                    console.log("pointerX:", pointer.x);
+                }
             }
         });
 
@@ -18,16 +25,22 @@ class GameKeyboard extends Phaser.GameObjects.Container{
             switch (kevent.key){
 
                 case "ArrowRight":
-                    Tableau.current.player.directionX=1;
+                    if(!Tableau.current.player.body.onFloor())
+                        {
+                        Tableau.current.player.directionX=1;
+                        }
                     break;
 
                 case "ArrowLeft":
-                    Tableau.current.player.directionX=-1;
+                    if(!Tableau.current.player.body.onFloor())
+                    {
+                        Tableau.current.player.directionX=-1;
+                    }
                     break;
 
-                case "ArrowUp":
+                /*case "ArrowUp":
                     Tableau.current.player.directionY=-1;
-                    break;
+                    break;*/
 
                 case "ArrowDown":
                     if (!Tableau.current.player.body.onFloor()){

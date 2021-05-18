@@ -40,27 +40,72 @@ class Player extends Phaser.Physics.Arcade.Sprite{
         this._directionY=0;
 
     }
+/*
+    AddSprite (spriteX,spriteY) {
+        constructor(scene, x, y)
+        {
+            var AbsoluteX = sprite.x;
+            var AbsoluteY = sprite.y;
+
+            if (this.body.onFloor()) {
+                this.jumpTo(sprite.x, sprite.y);
+                console.log("pointerX:", pointer.x);
+
+            }
+        }
+    } */
 
     /**
-     * Direction du saut
+     * Direction du saut + Direction du saut
      * @param targetX
      * @param targetY
      */
-    jumpTo(targetX,targetY){
-        console.log(targetX,targetY);
+    jumpTo (targetX,targetY){
+
+        console.log("SUM FOR DIRECTION=",this.x-targetX);
+
+        var dirX = 0;
+        /*playerX = this.x;
+        playerY = this.Y;*/
+
+        // on set la direction du jump //
+
+        if(this.body.x > targetX){
+            dirX =-1;
+            console.log("LEFT","playerX :",this.x,"mouseX :",targetX)
+        }
+        if(this.body.x < targetX){
+            dirX =1;
+            console.log("RIGHT","playerX :",this.x,"mouseX :",targetX)
+        }
+        /*if(this.body.x = targetX)
+        {
+            dirX = 0;
+            console.log("MID")
+        }*/
+
+
         Tableau.current.tweens.timeline({
             targets: this.body.velocity,
-            ease: 'Bounce.easeInOut',       // 'Cubic', 'Elastic', 'Bounce', 'Back'
-            duration: 200,
+            ease: 'Linear.easeInOut ',       // 'Cubic', 'Elastic', 'Bounce', 'Back'
+            duration: 250,
             loop: 0,
             tweens: [
                 {
-                    targets: this.body.velocity,
-                    x: 3000,
-                    y: -3000
+                    y: (targetY+50)*-1, // on inverse pour aller vers le haut
+                    x: ((targetX/100)*dirX),
+
                 }
             ]
-        });
+        })
+
+        //INERTIE//
+
+        //if(Tableau.current.player.body.onFloor())
+        //{
+        this.body.setVelocity(targetX*dirX,targetY*-1);
+        //}
+        console.log("VELOCITY FNINAL",this.body.velocity);
     }
 
     set directionX(value){
