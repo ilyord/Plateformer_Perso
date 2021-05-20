@@ -17,6 +17,7 @@ class Tableau extends Phaser.Scene{
     preload(){
         this.load.image('smoke', 'assets/smoke.png');
         this.load.image('spike', 'assets/spike.png');
+        this.load.audio('woosh', 'assets/Sound/woosh.mp3');
         this.load.spritesheet('player',
             'assets/Aplayer.png',
             { frameWidth:31 , frameHeight: 91  }
@@ -26,7 +27,6 @@ class Tableau extends Phaser.Scene{
         Tableau.current=this;
         this.isMobile=this.game.device.os.android || this.game.device.os.iOS;
         this.sys.scene.scale.lockOrientation("landscape")
-        console.log("On est sur "+this.constructor.name+" / "+this.scene.key);
         /**
          * Le ciel en fond
          * @type {Phaser.GameObjects.Image}
@@ -46,9 +46,12 @@ class Tableau extends Phaser.Scene{
         this.blood.visible=false;
 
     }
+
+
     update(){
         super.update();
         this.player.move();
+
     }
     /**
      *
@@ -82,6 +85,28 @@ class Tableau extends Phaser.Scene{
         })
     }
 
+    wooshShound (){
+
+        this.Tableau = this.sound.add('woosh');
+        var musicConfig =
+            {
+                mute: false,
+                volume: 10,
+                rate : 2,
+                detune: Phaser.Math.FloatBetween(0,5),
+                seek: 0,
+                loop: false,
+                delay:0,
+
+                Oncomplete: function (){
+                    this.game.sound.stopAll();
+                }
+            }
+
+        this.Tableau.play(musicConfig);
+
+    }
+
     ramasserEtoile (player, star)
     {
         star.disableBody(true, true);
@@ -104,19 +129,7 @@ class Tableau extends Phaser.Scene{
         
     }
 
-    /**
-     * Aïeee ça fait mal
-     * @param player
-     * @param spike
-     */
-    hitSpike (player, spike)
-    {
-        this.physics.pause();
-        player.setTint(0xff0000);
-        player.anims.play('turn');
-        this.scene.restart();
 
-    }
 
     /**
      * Quand on touche un monstre
@@ -126,27 +139,16 @@ class Tableau extends Phaser.Scene{
      */
     hitMonster(player, monster){
         let me=this;
-        if(monster.isDead !== true){ //si notre monstre n'est pas déjà mort
-            if (
-                // si le player descend
-                player.body.velocity.y > 1000000
-                // et si le bas du player est plus haut que le monstre
-                && player.getBounds().bottom < monster.getBounds().top + 50
 
-            ){
-
-                ui.gagne();
-                monster.isDead=true; //ok le monstre est mort
-                monster.disableBody(false,false);//plus de collisions
-                //notre joueur rebondit sur le monstre
-                player.directionY=500;
-            }else{
-                //le joueur est mort
-                me.playerDie();
-            }
+        if(this.player.body.velocity.y > 0 && this.player.body.touching.down){
+            //console.log("DOWNSHAKE")
+            this.player.body.setVelocityY(-800);
+            this.cameras.main.shake(50,0.0020,false);
         }
-
+        else
+            me.playerDie()
     }
+
 
     /**
      * Tue le player
@@ -174,7 +176,6 @@ class Tableau extends Phaser.Scene{
                 {
                     me.scene.restart();
                 })
-
             })
         }
     }

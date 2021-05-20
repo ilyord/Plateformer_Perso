@@ -6,65 +6,58 @@ class GameKeyboard extends Phaser.GameObjects.Container{
         super(scene, x, y)
         scene.add.existing(this);
 
+        //Ecoute du click
 
         this.cursors = scene.input.keyboard.createCursorKeys();
 
-        //sprite la ou clic la souris pour chopper les corrdonnée absolue
-
+        //Dash
         scene.input.on('pointerdown', function(pointer){
 
             if (Tableau.current){
-                if(Tableau.current.player.body.onFloor()) {
-                    Tableau.current.player.jumpTo(pointer.x+(Tableau.current.player.body.x/2), pointer.y+(Tableau.current.player.body.y/2));
-                    console.log("pointerX:", pointer.x);
+                if (0 < pointer.worldY < 470 && 20 < pointer.worldX < 1093){
+                    //if(!Tableau.current.player.body.onFloor()) { (//si le joueur est au sol il ne peut pas sauter//)
+                    Tableau.current.player.jumpTo(pointer.worldX, pointer.worldY);
+                    Tableau.current.wooshShound();
+                    Tableau.current.cameras.main.shake(70,0.0040,false);
+                    //console.log("pointer.worldY:", pointer.worldY);
+                    //}
                 }
             }
         });
+
+        //INPUT DOWN
 
         scene.input.keyboard.on('keydown', function(kevent){
             switch (kevent.key){
 
                 case "ArrowRight":
-                    if(!Tableau.current.player.body.onFloor())
-                        {
                         Tableau.current.player.directionX=1;
-                        }
                     break;
 
                 case "ArrowLeft":
-                    if(!Tableau.current.player.body.onFloor())
-                    {
                         Tableau.current.player.directionX=-1;
-                    }
                     break;
 
-                /*case "ArrowUp":
+                case "ArrowUp":
                     Tableau.current.player.directionY=-1;
-                    break;*/
+                    Tableau.current.player.setGravityY(400);
+                    break;
+
+
+                    //ULTRABOUNCE
 
                 case "ArrowDown":
                     if (!Tableau.current.player.body.onFloor()){
                         Tableau.current.player.setVelocityY(+900);
                         Tableau.current.player.setGravityY(2000);
-                        Tableau.current.player.setBounceY(2.2);
+                        Tableau.current.player.setBounceY(3);
                         Tableau.current.player.setBounceX(1.5);
-                        if (Tableau.current.player.body.onFloor()){
-                            console.log("Check_collision")
-                            Tableau.current.cameras.main.shake(200,0.0020,true);
-                        }
                     }
-                    else
                     break;
             }
         });
 
-        /*if (!player.body.touching.down){        // while player's in the air
-        if (player.body.touching.down){     // when player hit the groud
-            player.setVelocityX(0)
-            player.anims.play('land')       // play landing animation
-        }
-    }*/
-
+        //INPUT UP
 
         scene.input.keyboard.on('keyup', function(kevent){
             switch (kevent.key){
@@ -78,21 +71,21 @@ class GameKeyboard extends Phaser.GameObjects.Container{
 
                 case "ArrowUp":
                     Tableau.current.player.directionY=0;
+                    Tableau.current.player.setGravityY(1100);
                     break;
 
+
+                    //NO-ULTRABOUNCE
+
                 case "ArrowDown":
-                    Tableau.current.player.setGravityY(800);
+                    Tableau.current.player.setGravityY(1100);
                     Tableau.current.player.setBounceY(0);
                     Tableau.current.player.setBounceX(0);
                     break;
             }
         });
 
-
-
     }
-
-
 }
 
 

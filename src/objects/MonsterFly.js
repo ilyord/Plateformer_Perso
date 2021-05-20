@@ -7,14 +7,15 @@ class MonsterFly extends ObjetEnnemi {
     constructor(scene, x, y) {
         super(scene, x, y, "AA");
 
-        //Taille 
-        let sz = Math.random() * 50 + 30;
+        //Size
+        let sz = Math.random() * 55 + 35;
         this.setDisplaySize(sz, sz);
         this.size = sz
 
-        //Gravité
+        //Gravity
         this.body.allowGravity = true;
-        this.rotateSpeed = Math.random() + 10 * (this.size / 75);
+        this.body.setGravityY(1000/this.size)
+        this.rotateSpeed = Math.random() + 10 * (this.size / 100);
         this.rotateSpeed = this.rotateSpeed / 100;
 
 
@@ -22,13 +23,24 @@ class MonsterFly extends ObjetEnnemi {
         this.setBodySize(this.body.width - 60, this.body.height - 95);
         this.setOffset(30, 60);
 
-        //Speed
-        this.body.setMaxVelocity(Math.random() * 10 - 5, Math.random() * 300 - 100)
+        //MaxSpeed
+        this.body.setMaxVelocity((Phaser.Math.FloatBetween(0.5, 2.5) * 10 - 20), ((Phaser.Math.FloatBetween(1, 2) * 300 - 250)/(this.size/1.1)*30))
+        this.body.setVelocityX(500)
+
+
 
     }
 
+    //RESPAWN (WIP)
 
-    loop() {
+    /*onWorldBound(){
+        this.body.y = 0,
+            console.log("Reset ASTEROIDS")
+    }*/
+
+//Rotation en boucle
+
+    loop(sz) {
         this.rotation += this.rotateSpeed;
     }
 }
