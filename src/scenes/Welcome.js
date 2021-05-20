@@ -53,12 +53,12 @@ class Welcome extends Phaser.Scene {
         var musicConfig =
             {
                 mute: false,
-                volume: 1,
-                rate : 1,
+                volume : 0.4,
+                rate : 0.7,
                 detune: 0,
                 seek: 0,
                 loop: true,
-                delay:0,
+                delay: 0.2,
             }
         this.welcome.play(musicConfig);
 
@@ -88,8 +88,8 @@ class Welcome extends Phaser.Scene {
                 var musicConfig =
                     {
                         mute: false,
-                        volume: 0.5,
-                        rate : 0.4,
+                        volume: 0.2,
+                        rate : 1.4,
                         detune: 0,
                         seek: 0,
                         loop: false,
@@ -111,7 +111,7 @@ class Welcome extends Phaser.Scene {
                         delay:3.4,
                     }
                 this.music.play(musicConfig);
-                this.cameras.main.fadeOut(1000, 0, 0, 0)
+                this.cameras.main.fadeOut(200, 0, 0, 0)
                 this.cameras.main.once(Phaser.Cameras.Scene2D.Events.FADE_OUT_COMPLETE, (cam, effect) =>
                 {
                     this.game.scene.start(TableauTiled);

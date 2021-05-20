@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2813df63-b31b-43be-ad7c-2ad3f3e4ecb9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/Sound/woosh.mp3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/objects/MonsterFly.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/MonsterFly.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/objects/Player.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/Player.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/objects/ui/GameKeyboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/ui/GameKeyboard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scenes/TableauTiled.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/TableauTiled.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/Sound/Void.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/assets/Sound/Void.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scenes/Welcome.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/Welcome.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/scenes/structure/Tableau.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/structure/Tableau.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

@@ -91,7 +91,7 @@ class Tableau extends Phaser.Scene{
         var musicConfig =
             {
                 mute: false,
-                volume: 10,
+                volume: 1,
                 rate : 2,
                 detune: Phaser.Math.FloatBetween(0,5),
                 seek: 0,
@@ -193,10 +193,7 @@ class Tableau extends Phaser.Scene{
      * Quand on a gagné
      */
     win(){
-        
     }
-
-  
 }
 
 /**
