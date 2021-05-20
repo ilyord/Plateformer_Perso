@@ -2,8 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2813df63-b31b-43be-ad7c-2ad3f3e4ecb9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/assets/Sound/Running.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/Sound/SpaceOdyssey.mp3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/Sound/Void.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/assets/Sound/Void.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/Sound/Foretsong.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/objects/Player.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/Player.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/objects/ui/GameKeyboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/ui/GameKeyboard.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/scenes/Welcome.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/Welcome.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/scenes/structure/Tableau.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/structure/Tableau.js" afterDir="false" />
     </list>
@@ -73,6 +77,7 @@
       <workItem from="1621237365572" duration="20674000" />
       <workItem from="1621264868946" duration="1867000" />
       <workItem from="1621321687060" duration="11097000" />
+      <workItem from="1621543079264" duration="7450000" />
     </task>
     <servers />
   </component>

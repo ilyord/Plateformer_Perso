@@ -18,6 +18,8 @@ class Tableau extends Phaser.Scene{
         this.load.image('smoke', 'assets/smoke.png');
         this.load.image('spike', 'assets/spike.png');
         this.load.audio('woosh', 'assets/Sound/woosh.mp3');
+        this.load.audio('run', 'assets/Sound/Running.mp3');
+
         this.load.spritesheet('player',
             'assets/Aplayer.png',
             { frameWidth:31 , frameHeight: 91  }
@@ -45,12 +47,86 @@ class Tableau extends Phaser.Scene{
         this.blood.displayHeight=64;
         this.blood.visible=false;
 
+/*
+        this.isWalking = false;
+        //this.muting=!this.isWalking;
+
+            this.Tableau = this.sound.add('run');
+
+            var musicConfig =
+                {
+                    markers : 'run',
+                    mute: 0,
+                    volume: 0.3,
+                    rate: 1,
+                    detune: 0,
+                    loop: -1,
+                    Oncomplete: function (){
+                        this.game.sound.stopAll();
+                    }
+                }
+
+        this.Tableau.play(musicConfig);
+
+*/
     }
+
+//BRUIT DE PAS//
+
+    /*runSound (looping,mutesong){
+
+        var looping = true;
+        var mutesong = false;
+        this.Tableau = this.sound.add('run');
+
+        //OUI OU NON ON JOUE L'AUDIO//
+
+        /*if (this.isWalking = true){
+            mutesong = 0
+        }
+        else
+            mutesong = 1;
+
+        //CONFIG SON//
+
+        var musicConfig =
+            {
+                mute: mutesong,
+                volume: 0.3,
+                rate : 1,
+                detune: 0,
+                loop : looping,
+
+                Oncomplete: function (){
+                    this.game.sound.stopAll();
+                }
+            }
+
+        this.Tableau.play(musicConfig);
+
+
+
+        if (looping = false){
+            console.log("MUTE ")
+        }
+        else
+            console.log("APPEL COURSE")
+    }*/
 
 
     update(){
         super.update();
         this.player.move();
+        //this.runSound();
+        //console.log(this.isWalking)
+
+        /*if (this.isWalking=true){
+            this.Tableau.play('run')
+
+        }*/
+
+
+
 
     }
     /**

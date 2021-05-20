@@ -16,7 +16,7 @@ class Welcome extends Phaser.Scene {
         // audios
         this.load.audio('Void', 'assets/Sound/Void.mp3');
 
-        this.load.audio('Song', 'assets/Sound/Foretsong.mp3');
+        this.load.audio('Song', 'assets/Sound/SpaceOdyssey.mp3');
 
         this.load.audio('Transi', 'assets/Sound/Transi.wav');
     }
@@ -105,10 +105,7 @@ class Welcome extends Phaser.Scene {
                         mute: false,
                         volume: 0.3,
                         rate : 1,
-                        detune: -100,
-                        seek: 0,
                         loop: true,
-                        delay:3.4,
                     }
                 this.music.play(musicConfig);
                 this.cameras.main.fadeOut(200, 0, 0, 0)
