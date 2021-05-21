@@ -37,7 +37,7 @@ class GameKeyboard extends Phaser.GameObjects.Container{
 
                     {
                         Tableau.current.isWalking = true;
-                        this.sound.play('run');
+                        //this.sound.play('run');
                         console.log(Tableau.current.isWalking)
                     }
 
@@ -54,7 +54,7 @@ class GameKeyboard extends Phaser.GameObjects.Container{
 
                     {
                         Tableau.current.isWalking = true;
-                        this.sound.play('run');
+                        //this.sound.play('run');
                         console.log(Tableau.current.isWalking)
                     }
 
@@ -75,10 +75,14 @@ class GameKeyboard extends Phaser.GameObjects.Container{
 
                 case "ArrowDown":
                     if (!Tableau.current.player.body.onFloor()){
+                        Tableau.current.player.directionY = 1;
                         Tableau.current.player.setVelocityY(+900);
                         Tableau.current.player.setGravityY(2000);
                         Tableau.current.player.setBounceY(3);
                         Tableau.current.player.setBounceX(1.5);
+                        Tableau.current.wooshShound2();
+
+
                     }
                     break;
             }

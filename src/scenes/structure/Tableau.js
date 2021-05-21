@@ -18,7 +18,13 @@ class Tableau extends Phaser.Scene{
         this.load.image('smoke', 'assets/smoke.png');
         this.load.image('spike', 'assets/spike.png');
         this.load.audio('woosh', 'assets/Sound/woosh.mp3');
-        this.load.audio('run', 'assets/Sound/Running.mp3');
+        this.load.audio('playerStep', 'assets/Sound/Running.mp3');
+        this.load.audio('playerFalling', 'assets/Sound/FallingGround.mp3');
+        this.load.audio('playerLanding', 'assets/Sound/landingOnRocks.mp3');
+
+
+
+
 
         this.load.spritesheet('player',
             'assets/Aplayer.png',
@@ -46,6 +52,14 @@ class Tableau extends Phaser.Scene{
         this.blood.displayWidth=64;
         this.blood.displayHeight=64;
         this.blood.visible=false;
+
+        this.playerStep = this.sound.add('playerStep');
+        this.playerStep.play();
+
+
+
+
+
 
 /*
         this.isWalking = false;
@@ -114,21 +128,43 @@ class Tableau extends Phaser.Scene{
     }*/
 
 
+
     update(){
         super.update();
         this.player.move();
-        //this.runSound();
         //console.log(this.isWalking)
+        this.fallingCheck();
 
-        /*if (this.isWalking=true){
-            this.Tableau.play('run')
-
-        }*/
 
 
 
 
     }
+
+    fallingCheck(){
+        if(this.player.body.blocked && this.player.body.touching.down)
+        {
+            console.log("BIMBAMBOUM")
+                this.music = this.sound.add('playerLanding');
+                var musicConfig =
+                    {
+                        mute: false,
+                        volume: 2,
+                        rate : 3,
+                        detune: -100,
+                        seek: 0,
+                        loop: false,
+                        delay:0,
+                        Oncomplete: function (){
+                            this.game.sound.stop.sound('playerLanding');
+                        }
+
+                    }
+                this.Tableau.play(musicConfig)
+        }
+            }
+
+
     /**
      *
      * @param {Sprite} object Objet qui saigne
@@ -173,6 +209,29 @@ class Tableau extends Phaser.Scene{
                 seek: 0,
                 loop: false,
                 delay:0,
+
+                Oncomplete: function (){
+                    this.game.sound.stopAll();
+                }
+            }
+
+        this.Tableau.play(musicConfig);
+
+    }
+
+
+    wooshShound2 (){
+
+        this.Tableau = this.sound.add('woosh');
+        var musicConfig =
+            {
+                mute: false,
+                volume: 0.7,
+                rate : 1    ,
+                detune: Phaser.Math.FloatBetween(0,5),
+                seek: 0,
+                loop: false,
+                delay:0.1,
 
                 Oncomplete: function (){
                     this.game.sound.stopAll();

@@ -15,6 +15,7 @@ class Player extends Phaser.Physics.Arcade.Sprite {
         this.setOffset(+7, +7);
 
 
+
         //ANIMATION
         this.anims.create({
             key: 'left',
@@ -129,6 +130,7 @@ class Player extends Phaser.Physics.Arcade.Sprite {
             case this._directionX<0:
                 this.setVelocityX(-200);
                 this.anims.play('left', true);
+                //Tableau.sounds.play('playerStep');
                 break;
 
 //---------------------Préparation pour animation en l'air---------------------------------//
@@ -141,6 +143,7 @@ class Player extends Phaser.Physics.Arcade.Sprite {
             case this._directionX>0:
                 this.setVelocityX(200);
                 this.anims.play('right', true);
+                //Tableau.sounds.play('playerStep');
                 break;
 
             default:
@@ -151,7 +154,6 @@ class Player extends Phaser.Physics.Arcade.Sprite {
         if (this._directionY < 0) {
             if (this.body.blocked.down || this.body.touching.down) {
                 this.setVelocityY(-500);}
-
         }
 
         if (this._directionX < 0) {

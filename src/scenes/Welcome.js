@@ -19,6 +19,8 @@ class Welcome extends Phaser.Scene {
         this.load.audio('Song', 'assets/Sound/SpaceOdyssey.mp3');
 
         this.load.audio('Transi', 'assets/Sound/Transi.wav');
+
+        this.load.audio('Transi2', 'assets/Sound/Transi2.mp3');
     }
 
     create()
@@ -71,9 +73,9 @@ class Welcome extends Phaser.Scene {
 
         //---------- on affiche les boutons ----------
 
-        let startB1 = this.add.sprite(game.config.width/2, game.config.height/2, 'Play');
+        let startB1 = this.add.sprite(game.config.width/2, game.config.height/2-100, 'Play');
 
-        let startB2 = this.add.sprite(game.config.width/2, game.config.height/2+100, 'Click');
+        let startB2 = this.add.sprite(game.config.width/2, game.config.height/2+50, 'Click');
 
 //-------------------------------------TRANSI_SON------------------------------------------//
 
@@ -85,6 +87,7 @@ class Welcome extends Phaser.Scene {
                 this.touchePressed = true;
                 this.game.sound.stopAll();
                 this.music = this.sound.add('Transi');
+                this.music = this.sound.add('Transi2');
                 var musicConfig =
                     {
                         mute: false,
@@ -94,7 +97,32 @@ class Welcome extends Phaser.Scene {
                         seek: 0,
                         loop: false,
                         delay:0,
+                        Oncomplete: function (){
+                            this.game.sound.stopAll();
+                        }
+
                     }
+                    this.welcome.play(musicConfig)
+                this.welcome.play(musicConfig2)
+
+
+                this.game.sound.stopAll();
+
+                var musicConfig2 =
+                    {
+                        mute: false,
+                        volume: 0.2,
+                        rate : 1.4,
+                        detune: 0,
+                        seek: 0,
+                        loop: false,
+                        delay:0,
+                        Oncomplete: function (){
+                            this.game.sound.stopAll();
+                        }
+                    }
+
+
 
                 //--------------------Musique_pour_le_LVL_suivant-------------------------//
 
@@ -106,6 +134,7 @@ class Welcome extends Phaser.Scene {
                         volume: 0.3,
                         rate : 1,
                         loop: true,
+
                     }
                 this.music.play(musicConfig);
                 this.cameras.main.fadeOut(200, 0, 0, 0)
