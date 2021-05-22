@@ -45,9 +45,9 @@ https://ilyord.github.io/Plateformer_Perso/
 ## Graphism ##
 
 - [X] Asteroids
-- [x] Platform (alpha 1 version)
-- [x] Background (alpha 1 version)
-- [x] Tutorial pannels (alpha 1 version)
+- [x] \(Alpha) Platform
+- [x] \(Alpha) Background
+- [x] \(Alpha) Tutorial pannels
 - [ ] Plants
 
 - [ ] Letter
@@ -72,8 +72,8 @@ https://ilyord.github.io/Plateformer_Perso/
 - [x] When player collides
 - [ ] When player walks 
 - [ ] When player dash
-- [ ] Trail for asteroids ?
-- [ ] Background ?
+- [ ] \(Optional) Trail for asteroids
+- [ ] \(Optional) Background
 
 This game needs to be tested, do not hesitate to give me feedback !
 
@@ -84,7 +84,7 @@ Alpha 2.0 Big Update !
 
 ## Adding : 
 
-- Statics asteroids (now as his own sprite,player bouncing on it depending of it's Y velocity)
+- Statics asteroids (now as his own sprite, player bouncing on it depending of it's Y velocity)
 - Tutorial panels explaining the game's mechanics
 
 ## Changing :
