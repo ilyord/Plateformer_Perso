@@ -1,6 +1,7 @@
-Le jeu est visible sur https://ilyord.github.io/Plateformer_Perso/
+#### LINK TO THE GAME ####
+https://ilyord.github.io/Plateformer_Perso/
 
-
+#### KeyArt ###
 
 ![Sunless Letter](/assets/KeyArt_SunlessLetter_Borderless.png)
 Format: ![Alt Text](url)
