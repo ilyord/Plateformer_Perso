@@ -28,6 +28,10 @@ https://ilyord.github.io/Plateformer_Perso/
 - [x] Rotation
 - [ ] Respawn (for moving asteroids)
 
+### Misc ###
+
+-[ ] Tutorials pannels 
+
 ## Gameplay ##
 
 ### Player ###
