@@ -1,6 +1,14 @@
 Le jeu est visible sur https://ilyord.github.io/Plateformer_Perso/
 
+
+
+![Sunless Letter](/images/logo.png)
+Format: ![Alt Text](url)
+
 #### ALPHA 2.0 ####
+
+Concept Art and illustration by Marie Charbonnier
+Programming, designs, music, animations by Andrea Michel
 
 ### Features ###
 
@@ -16,6 +24,7 @@ Le jeu est visible sur https://ilyord.github.io/Plateformer_Perso/
 # Astéroïdes: #
 
 - [x] Rotation
+- [ ] Respawn (for moving asteroids)
 
 ## Gameplay ##
 
@@ -36,20 +45,35 @@ Le jeu est visible sur https://ilyord.github.io/Plateformer_Perso/
 - [X] Asteroids
 - [x] Platform (alpha 1 version)
 - [x] Background (alpha 1 version)
-- [ ] Plants
 - [x] Tutorial pannels (alpha 1 version)
+- [ ] Plants
+
 - [ ] Letter
 
 ## Sound Design ##
 
 # Player VFX #
 
+- [x] Bouncing
+- [x] Dashing
 - [ ] Footstep
-- [x] Platform (alpha 1 version)
-- [x] Background (alpha 1 version)
-- [ ] Plants
-- [x] Tutorial pannels (alpha 1 version)
-- [ ] Letter
+- [ ] Dying 
+- [ ] Landing
+
+
+# Music #
+
+- [x] [Space Odyssey](https://soundcloud.com/hitchrap/odysseus)
+
+## VFX ##
+
+- [x] When player collides
+- [ ] When player walks 
+- [ ] When player dash
+- [ ] Trail for asteroids ?
+- [ ] Background ?
+
+This game needs to be tested, do not hesitate to give me feedback !
 
 Version Log :
 
