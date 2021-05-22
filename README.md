@@ -1,29 +1,44 @@
 Le jeu est visible sur https://ilyord.github.io/Plateformer_Perso/
 
-### ALPHA 2.0 ###
+#### ALPHA 2.0 ####
 
-## Features ##
+### Features ###
 
-# Animation #
+## Animation ##
 
-- Character:
--
+# Character: #
+
 - [x] running
 - [ ] jumping
 - [ ] falling
 - [ ] dashing
 
-- [x] Astéroïdes (rotation)
+# Astéroïdes: #
 
-Gameplay
+- [x] Rotation
 
--Mouvements complexes du personnage (saut et inertie)
+## Gameplay ##
 
-Divers
+# Player #
+
+- [x] Basic mouvements
+- [X] Dash
+- [X] Super-Bounce
+- [X] Interaction with game objetcs (bouncing, looting)
+
+# Asteroids #
+
+- [x] Moving asteroids
+- [X] Static asteroids
+
+
+
 
 -VFX
 
-Big Update ! Alpha 2.0
+Version Log :
+
+Alpha 2.0 Big Update !
 
 Adding : 
 
