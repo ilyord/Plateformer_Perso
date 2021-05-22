@@ -73,9 +73,10 @@ class Welcome extends Phaser.Scene {
 
         //---------- on affiche les boutons ----------
 
-        let startB1 = this.add.sprite(game.config.width/2, game.config.height/2-100, 'Play');
+        //let startB1 = this.add.sprite(game.config.width/2, game.config.height/2-100, 'Play');
 
-        let startB2 = this.add.sprite(game.config.width/2, game.config.height/2+50, 'Click');
+        let startB2 = this.add.sprite(game.config.width/2, game.config.height/2, 'Click');
+        startB2.setDisplaySize(320,80);
 
 //-------------------------------------TRANSI_SON------------------------------------------//
 
@@ -99,14 +100,11 @@ class Welcome extends Phaser.Scene {
                         delay:0,
                         Oncomplete: function (){
                             this.game.sound.stopAll();
+                            this.welcome.play(musicConfig2)
                         }
 
                     }
-                    this.welcome.play(musicConfig)
-                this.welcome.play(musicConfig2)
-
-
-                this.game.sound.stopAll();
+                    this.welcome.play(musicConfig);
 
                 var musicConfig2 =
                     {
@@ -131,7 +129,7 @@ class Welcome extends Phaser.Scene {
                 var musicConfig =
                     {
                         mute: false,
-                        volume: 0.3,
+                        volume: 0.2,
                         rate : 1,
                         loop: true,
 

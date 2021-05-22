@@ -19,15 +19,23 @@ class TableauTiled extends Tableau{
         // nos images
         this.load.image('tiles', 'assets/tilemaps/Plateformes-lineless.png');
         //les données du tableau qu'on a créé dans TILED
-        this.load.tilemapTiledJSON('map', 'assets/tilemaps/tableauTiled1.json');
+        this.load.tilemapTiledJSON('map', 'assets/tilemaps/tableauTiled5.json');
 
         // -----et puis aussi-------------
         this.load.image('AA', 'assets/B.png');
+        this.load.image('CC', 'assets/Asteroide2_OPTI.png');
+
         this.load.image('FOND', 'assets/Fond+EL.png');
         this.load.image('EP', 'assets/EP.png');
         this.load.image('S1', 'assets/S1.png');
         this.load.image('S2', 'assets/S2.png');
         this.load.image('S3', 'assets/S3.png');
+
+        this.load.image('tuto_basic', 'assets/tuto/Small_Basics_Tutorial_Sign.jpg');
+        this.load.image('tuto_avoid', 'assets/tuto/Small_Avoid_Ast_Tutorial_Sign.jpg');
+        this.load.image('tuto_jumpOn', 'assets/tuto/Small_Jump_Ast_Tutorial_Sign.jpg');
+        this.load.image('tuto_superBounce', 'assets/tuto/Small_Super_Bounce_Tutorial_Sign.jpg');
+
 
 
         //atlas de texture généré avec https://free-tex-packer.com/app/
@@ -36,6 +44,12 @@ class TableauTiled extends Tableau{
     }
     create() {
         super.create();
+
+        this.add.image(1050,700,'tuto_basic').setDepth(998).setScale(0.8,0.8);
+        this.add.image(4900,750,'tuto_superBounce').setDepth(998).setScale(0.7,0.7);
+        this.add.image(5670,570,'tuto_avoid').setDepth(998).setScale(0.8,0.8);
+        this.add.image(7650,880,'tuto_jumpOn').setDepth(998).setScale(0.8,0.8);
+
 
         //on en aura besoin...
         let ici=this;
@@ -101,6 +115,20 @@ class TableauTiled extends Tableau{
             let asteroide=new MonsterFly(this,asteroidsObject.x,asteroidsObject.y);
             this.asteroidsContainer.add(asteroide);
             this.asteroides.push(asteroide);
+        });
+
+
+
+        //----------Asteroids (Static) ---------------------
+
+        this.staticAstContainer=this.add.container();
+        this.staticAstObjects = this.map.getObjectLayer('StaticAst')['objects'];
+        this.StaticAst=[]
+        // On crée des montres volants pour chaque objet rencontré
+        this.staticAstObjects.forEach(staticAstObject => {
+            let staticAst=new StaticAst(this,staticAstObject.x,staticAstObject.y-50);
+            this.staticAstContainer.add(staticAst);
+            this.StaticAst.push(staticAst);
         });
 
         //--------effet sur la lave------------------------
@@ -282,6 +310,7 @@ class TableauTiled extends Tableau{
         this.laveFxContainer.setDepth(z--);
         this.lave.setDepth(z--);
         this.asteroidsContainer.setDepth(z = 1000);
+        this.staticAstContainer.setDepth(z=999)
         this.player.setDepth(z--);
         this.derriere.setDepth(z--);
 

@@ -1,7 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2813df63-b31b-43be-ad7c-2ad3f3e4ecb9" name="Default Changelist" comment="" />
+    <list default="true" id="2813df63-b31b-43be-ad7c-2ad3f3e4ecb9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/assets/Asteroide2_OPTI.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/Sound/woosh2.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/tilemaps/Nebulae.tmx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/tilemaps/tableauTiled2.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/tilemaps/tableauTiled2.tmx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/tilemaps/tableauTiled3.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/tilemaps/tableauTiled3.tmx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/tilemaps/tableauTiled4.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/tilemaps/tableauTiled4.tmx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/tilemaps/tableauTiled5.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/tuto/Small_Avoid_Ast_Tutorial_Sign.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/tuto/Small_Basics_Tutorial_Sign.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/tuto/Small_Jump_Ast_Tutorial_Sign.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/tuto/Small_Super_Bounce_Tutorial_Sign.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/objects/StaticAst.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/Sound/SpaceOdyssey.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/assets/Sound/SpaceOdyssey.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tilemaps/tableauTiled1.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tilemaps/tableauTiled1.tmx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/objects/MonsterFly.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/MonsterFly.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/objects/Player.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/Player.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/objects/ui/GameKeyboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/ui/GameKeyboard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scenes/TableauTiled.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/TableauTiled.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scenes/Welcome.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/Welcome.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scenes/structure/Tableau.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/structure/Tableau.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -25,6 +52,9 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedIndex" value="2" />
+  </component>
   <component name="ProjectId" id="1sNfms1RhNL5WTp9G3eTp47CyqE" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -39,11 +69,12 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/objects" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../PXL" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2021.1.1\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -70,6 +101,8 @@
       <workItem from="1621321687060" duration="11097000" />
       <workItem from="1621543079264" duration="7450000" />
       <workItem from="1621580926985" duration="11084000" />
+      <workItem from="1621601936512" duration="10183000" />
+      <workItem from="1621692592482" duration="8609000" />
     </task>
     <servers />
   </component>

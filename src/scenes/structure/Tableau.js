@@ -18,6 +18,7 @@ class Tableau extends Phaser.Scene{
         this.load.image('smoke', 'assets/smoke.png');
         this.load.image('spike', 'assets/spike.png');
         this.load.audio('woosh', 'assets/Sound/woosh.mp3');
+        this.load.audio('woosh2', 'assets/Sound/woosh2.mp3');
         this.load.audio('playerStep', 'assets/Sound/Running.mp3');
         this.load.audio('playerFalling', 'assets/Sound/FallingGround.mp3');
         this.load.audio('playerLanding', 'assets/Sound/landingOnRocks.mp3');
@@ -46,15 +47,15 @@ class Tableau extends Phaser.Scene{
          * Le joueur
          * @type {Player}
          */
-        this.player=new Player(this,0,300);
-        this.player.setMaxVelocity(800,900); //évite que le player quand il tombe ne traverse des plateformes
+        this.player=new Player(this,1050,850);
+        this.player.setMaxVelocity(950,850); //évite que le player quand il tombe ne traverse des plateformes
         this.blood = this.add.sprite(this.sys.canvas.width / 2, this.sys.canvas.height / 2,"smoke")
         this.blood.displayWidth=64;
         this.blood.displayHeight=64;
         this.blood.visible=false;
 
-        this.playerStep = this.sound.add('playerStep');
-        this.playerStep.play();
+        //this.playerStep = this.sound.add('playerStep');
+        //this.playerStep.play();
 
 
 
@@ -142,16 +143,16 @@ class Tableau extends Phaser.Scene{
     }
 
     fallingCheck(){
-        if(this.player.body.blocked && this.player.body.touching.down)
+        if(this.player.body.onFloor() && this.player.directionY >0)
         {
             console.log("BIMBAMBOUM")
                 this.music = this.sound.add('playerLanding');
                 var musicConfig =
                     {
                         mute: false,
-                        volume: 2,
+                        volume: 2.5,
                         rate : 3,
-                        detune: -100,
+                        detune: Phaser.Math.FloatBetween(-100,-300),
                         seek: 0,
                         loop: false,
                         delay:0,
@@ -160,7 +161,8 @@ class Tableau extends Phaser.Scene{
                         }
 
                     }
-                this.Tableau.play(musicConfig)
+
+                //this.Tableau.play(musicConfig);
         }
             }
 
@@ -178,6 +180,7 @@ class Tableau extends Phaser.Scene{
         me.blood.rotation = Phaser.Math.Between(0,100);
         me.blood.x=object.x;
         me.blood.y=object.y;
+        this.DeathSound(object.x);
         me.tweens.add({
             targets:me.blood,
             duration:600,
@@ -199,13 +202,13 @@ class Tableau extends Phaser.Scene{
 
     wooshShound (){
 
-        this.Tableau = this.sound.add('woosh');
+        this.Tableau = this.sound.add('woosh2');
         var musicConfig =
             {
                 mute: false,
-                volume: 1,
+                volume: 1.3,
                 rate : 2,
-                detune: Phaser.Math.FloatBetween(0,5),
+                detune: Phaser.Math.FloatBetween(0,100),
                 seek: 0,
                 loop: false,
                 delay:0,
@@ -226,9 +229,47 @@ class Tableau extends Phaser.Scene{
         var musicConfig =
             {
                 mute: false,
-                volume: 0.7,
+                volume: 1,
                 rate : 1    ,
-                detune: Phaser.Math.FloatBetween(0,5),
+                detune: Phaser.Math.FloatBetween(0,100),
+                seek: 0,
+                loop: false,
+                delay:0.1,
+
+                Oncomplete: function (){
+                    this.game.sound.stopAll();
+                }
+            }
+
+        this.Tableau.play(musicConfig);
+
+        console.log("whoosh2");
+
+    }
+
+    DeathSound(PlayerXX){
+
+        //Volume en fonction de l'avancée du joueur
+
+        console.log("DEATHSOUND")
+
+        PlayerXX = (PlayerXX/2000);
+         let volumeXX = 1;
+
+
+        if(1<PlayerXX<6){
+            volumeXX = PlayerXX;
+        }
+            else
+                volumeXX = 1;
+
+        this.Tableau = this.sound.add('playerFalling');
+        var musicConfig =
+            {
+                mute: false,
+                volume: volumeXX,
+                rate : 1    ,
+                detune: Phaser.Math.FloatBetween(0,100),
                 seek: 0,
                 loop: false,
                 delay:0.1,
@@ -273,12 +314,13 @@ class Tableau extends Phaser.Scene{
      * @param {Phaser.Physics.Arcade.Sprite} monster
      */
     hitMonster(player, monster){
+
         let me=this;
 
-        if(this.player.body.velocity.y > 0 && this.player.body.touching.down){
+        if(this.player.body.velocity.y > 0 && this.player.body.wasTouching.none ){
             //console.log("DOWNSHAKE")
-            this.player.body.setVelocityY(-800);
-            this.cameras.main.shake(50,0.0020,false);
+            this.player.body.setVelocityY((this.player.body.velocity.y*-1)*1.5);
+            this.cameras.main.shake(50,0.0025,false);
         }
         else
             me.playerDie()

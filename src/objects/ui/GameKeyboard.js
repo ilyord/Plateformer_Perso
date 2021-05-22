@@ -20,6 +20,7 @@ class GameKeyboard extends Phaser.GameObjects.Container{
                     Tableau.current.wooshShound();
                     Tableau.current.cameras.main.shake(70,0.0040,false);
                     //console.log("pointer.worldY:", pointer.worldY);
+                    console.log("X :", Tableau.current.player.x, "Y :",Tableau.current.player.y)
                     //}
                 }
             }
@@ -67,7 +68,7 @@ class GameKeyboard extends Phaser.GameObjects.Container{
                 case "ArrowUp":
                     Tableau.current.isWalking =false;
                     Tableau.current.player.directionY=-1;
-                    Tableau.current.player.setGravityY(400);
+                    Tableau.current.player.setGravityY(500);
                     break;
 
 
@@ -79,7 +80,7 @@ class GameKeyboard extends Phaser.GameObjects.Container{
                         Tableau.current.player.setVelocityY(+900);
                         Tableau.current.player.setGravityY(2000);
                         Tableau.current.player.setBounceY(3);
-                        Tableau.current.player.setBounceX(1.5);
+                        Tableau.current.player.setBounceX(3);
                         Tableau.current.wooshShound2();
 
 
