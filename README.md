@@ -2,7 +2,7 @@ Le jeu est visible sur https://ilyord.github.io/Plateformer_Perso/
 
 
 
-![Sunless Letter](/images/logo.png)
+![Sunless Letter](/assets/KeyArt_SunlessLetter_Borderless.png)
 Format: ![Alt Text](url)
 
 #### ALPHA 2.0 ####
