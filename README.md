@@ -1,17 +1,17 @@
 Le jeu est visible sur https://ilyord.github.io/Plateformer_Perso/
 
-#ALPHA 2.0#
+### ALPHA 2.0 ###
 
 ## Features ##
 
-- [x] Animation
+# - [ ] Character animation #
 
-- [x] Finish my changes
-- [ ] Push my commits to GitHub
-- [ ] Open a pull request
+- [x] running
+- [ ] jumping
+- [ ] falling
+- [ ] dashing
 
--Character (running/jumping/falling/dashing)
-DONE Astéroïdes (rotation)
+- [x] Astéroïdes (rotation)
 
 Gameplay
 
