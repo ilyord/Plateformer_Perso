@@ -1,41 +1,41 @@
-#### LINK TO THE GAME ####
+# LINK TO THE GAME #
 https://ilyord.github.io/Plateformer_Perso/
 
-#### KeyArt ###
+## KeyArt ##
 
 ![Sunless Letter](/assets/KeyArt_SunlessLetter_Borderless.png)
 
-###### ALPHA 2.0 ######
+## ALPHA 2.0 ##
 
 - Concept Art and illustration by Marie Charbonnier
 - Programming, designs, music, animations by Andrea Michel
 
-### Features ###
+# Features #
 
 ## Animation ##
 
-# Character: #
+### Character: ###
 
 - [x] running
 - [ ] jumping
 - [ ] falling
 - [ ] dashing
 
-# Astéroïdes: #
+### Astéroïdes: ###
 
 - [x] Rotation
 - [ ] Respawn (for moving asteroids)
 
 ## Gameplay ##
 
-# Player #
+### Player ###
 
 - [x] Basic mouvements
 - [X] Dash
 - [X] Super-Bounce
 - [X] Interaction with game objetcs (bouncing, looting)
 
-# Asteroids #
+### Asteroids ###
 
 - [x] Moving asteroids
 - [X] Static asteroids
@@ -52,7 +52,7 @@ https://ilyord.github.io/Plateformer_Perso/
 
 ## Sound Design ##
 
-# Player VFX #
+### Player VFX ###
 
 - [x] Bouncing
 - [x] Dashing
@@ -61,11 +61,11 @@ https://ilyord.github.io/Plateformer_Perso/
 - [ ] Landing
 
 
-# Music #
+### Music ###
 
 - [x] [Space Odyssey](https://soundcloud.com/hitchrap/odysseus)
 
-## VFX ##
+# VFX #
 
 - [x] When player collides
 - [ ] When player walks 
@@ -75,7 +75,8 @@ https://ilyord.github.io/Plateformer_Perso/
 
 This game needs to be tested, do not hesitate to give me feedback !
 
-Version Log :
+
+# Version Log : #
 
 Alpha 2.0 Big Update !
 
