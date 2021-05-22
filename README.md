@@ -4,8 +4,10 @@ Le jeu est visible sur https://ilyord.github.io/Plateformer_Perso/
 
 ## Features ##
 
-# - [ ] Character animation #
+# Animation #
 
+- Character:
+-
 - [x] running
 - [ ] jumping
 - [ ] falling
