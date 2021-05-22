@@ -31,10 +31,25 @@ Le jeu est visible sur https://ilyord.github.io/Plateformer_Perso/
 - [x] Moving asteroids
 - [X] Static asteroids
 
+## Graphism ##
 
+- [X] Asteroids
+- [x] Platform (alpha 1 version)
+- [x] Background (alpha 1 version)
+- [ ] Plants
+- [x] Tutorial pannels (alpha 1 version)
+- [ ] Letter
 
+## Sound Design ##
 
--VFX
+# Player VFX #
+
+- [ ] Footstep
+- [x] Platform (alpha 1 version)
+- [x] Background (alpha 1 version)
+- [ ] Plants
+- [x] Tutorial pannels (alpha 1 version)
+- [ ] Letter
 
 Version Log :
 
