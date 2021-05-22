@@ -65,7 +65,7 @@ https://ilyord.github.io/Plateformer_Perso/
 
 ### Music ###
 
-- [x] [Space Odyssey](https://soundcloud.com/hitchrap/odysseus)
+- [x] [Space Odyssey (click here to listen)](https://soundcloud.com/hitchrap/odysseus)
 
 # VFX #
 
