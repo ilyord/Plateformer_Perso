@@ -6,8 +6,12 @@ Le jeu est visible sur https://ilyord.github.io/Plateformer_Perso/
 
 Animation
 
+- [x] Finish my changes
+- [ ] Push my commits to GitHub
+- [ ] Open a pull request
+
 -Character (running/jumping/falling/dashing)
-[DONE] Astéroïdes (rotation)
+DONE Astéroïdes (rotation)
 
 Gameplay
 
