@@ -82,15 +82,15 @@ This game needs to be tested, do not hesitate to give me feedback !
 
 Alpha 2.0 Big Update !
 
-Adding : 
+## Adding : 
 
--Statics asteroids (now as his own sprite,player bouncing on it depending of it's Y velocity)
--Tutorial panels explaining the game's mechanics
+- Statics asteroids (now as his own sprite,player bouncing on it depending of it's Y velocity)
+- Tutorial panels explaining the game's mechanics
 
-Changing :
+## Changing :
 
--Map to make a tutorial
--Added Final version of 'Space Odyssey' music.
--Players dash faster and in both ways.
--Basic jump has been debuffed.
--Falling sound disabled due to a nasty bug
+- Map to make a tutorial
+- Added Final version of 'Space Odyssey' music.
+- Players dash faster and in both ways.
+- Basic jump has been debuffed.
+- Falling sound disabled due to a nasty bug
