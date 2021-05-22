@@ -5,7 +5,7 @@ https://ilyord.github.io/Plateformer_Perso/
 
 ![Sunless Letter](/assets/KeyArt_SunlessLetter_Borderless.png)
 
-#### ALPHA 2.0 ####
+###### ALPHA 2.0 ######
 
 - Concept Art and illustration by Marie Charbonnier
 - Programming, designs, music, animations by Andrea Michel
