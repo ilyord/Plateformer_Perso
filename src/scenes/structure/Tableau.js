@@ -47,7 +47,7 @@ class Tableau extends Phaser.Scene{
          * Le joueur
          * @type {Player}
          */
-        this.player=new Player(this,1050,850);
+        this.player=new Player(this,1650,850);
         this.player.setMaxVelocity(950,850); //évite que le player quand il tombe ne traverse des plateformes
         this.blood = this.add.sprite(this.sys.canvas.width / 2, this.sys.canvas.height / 2,"smoke")
         this.blood.displayWidth=64;

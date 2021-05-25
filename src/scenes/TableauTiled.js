@@ -17,19 +17,16 @@ class TableauTiled extends Tableau{
         super.preload();
         // ------pour TILED-------------
         // nos images
-        this.load.image('tiles', 'assets/tilemaps/Plateformes-lineless.png');
+        this.load.image('tiles', 'assets/tilemaps/Petite_Bleu_Plateformes_lineless.png');
         //les données du tableau qu'on a créé dans TILED
-        this.load.tilemapTiledJSON('map', 'assets/tilemaps/tableauTiled6.json');
+        this.load.tilemapTiledJSON('map', 'assets/tilemaps/tableauTiled7.json');
 
         // -----et puis aussi-------------
         this.load.image('AA', 'assets/B.png');
         this.load.image('CC', 'assets/Asteroide2_OPTI.png');
 
-        this.load.image('FOND', 'assets/Fond+EL.png');
-        this.load.image('EP', 'assets/EP.png');
-        this.load.image('S1', 'assets/S1.png');
-        this.load.image('S2', 'assets/S2.png');
-        this.load.image('S3', 'assets/S3.png');
+        this.load.image('FOND', 'assets/Sunless_Background.jpg');
+
 
         this.load.image('tuto_basic', 'assets/tuto/Small_Basics_Tutorial_Sign.jpg');
         this.load.image('tuto_avoid', 'assets/tuto/Small_Avoid_Ast_Tutorial_Sign.jpg');
@@ -45,7 +42,7 @@ class TableauTiled extends Tableau{
     create() {
         super.create();
 
-        this.add.image(1050,700,'tuto_basic').setDepth(998).setScale(0.8,0.8);
+        this.add.image(2100,900,'tuto_basic').setDepth(998).setScale(0.8,0.8);
         this.add.image(4900,750,'tuto_superBounce').setDepth(998).setScale(0.7,0.7);
         this.add.image(5670,570,'tuto_avoid').setDepth(998).setScale(0.8,0.8);
         this.add.image(7650,880,'tuto_jumpOn').setDepth(998).setScale(0.8,0.8);
@@ -59,14 +56,14 @@ class TableauTiled extends Tableau{
         //notre map
         this.map = this.make.tilemap({ key: 'map' });
         //nos images qui vont avec la map
-        this.tileset = this.map.addTilesetImage('Plateformes-lineless', 'tiles');
+        this.tileset = this.map.addTilesetImage('Petite_Bleu_Plateformes_lineless', 'tiles');
 
         //on agrandit le champ de la caméra du coup
-        let largeurDuTableau = 10240
-        let hauteurDuTableau= 1560
+        let largeurDuTableau = 10240*2+600
+        let hauteurDuTableau= 1560*2
         this.physics.world.setBounds(0, 0, largeurDuTableau,  hauteurDuTableau);
-        this.cameras.main.setBounds(0, 0, largeurDuTableau, hauteurDuTableau);
-        this.cameras.main.startFollow(this.player, true, 0.5, 0.3);
+        this.cameras.main.setBounds(0, 0, largeurDuTableau, hauteurDuTableau-600);
+        this.cameras.main.startFollow(this.player, true, 0.5, 0.5);
         //---- ajoute les plateformes simples ----------------------------
 
         this.solides = this.map.createLayer('solides', this.tileset, 0, 0);
@@ -79,12 +76,12 @@ class TableauTiled extends Tableau{
         // 1 La méthode que je préconise (il faut définir une propriété dans tiled pour que ça marche)
         //permet de travailler sur un seul layer dans tiled et des définir les collisions en fonction des graphiques
         //exemple ici https://medium.com/@michaelwesthadley/modular-game-worlds-in-phaser-3-tilemaps-1-958fc7e6bbd6
-        this.solides.setCollisionByProperty({ collides: true });
-        this.lave.setCollisionByProperty({ collides: true });
+        //this.solides.setCollisionByProperty({ collides: true });
+        //this.lave.setCollisionByProperty({ collides: true });
 
         // 2 manière la plus simple (là où il y a des tiles ça collide et sinon non)
-        //this.solides.setCollisionByExclusion(-1, true);
-        //this.lave.setCollisionByExclusion(-1, true);
+        this.solides.setCollisionByExclusion(-1, true);
+        this.lave.setCollisionByExclusion(-1, true);
 
         // 3 Permet d'utiliser l'éditeur de collision de Tiled...mais ne semble pas marcher pas avec le moteur de physique ARCADE, donc oubliez cette option :(
         //this.map.setCollisionFromCollisionGroup(true,true,this.plateformesSimples);
@@ -247,45 +244,9 @@ class TableauTiled extends Tableau{
             this.sys.canvas.height,
             'FOND'
         );
-        this.sky2=this.add.tileSprite(
-            0,
-            0,
-            this.sys.canvas.width,
-            this.sys.canvas.height,
-            'EP'
-        );
-        this.sky3 = this.add.tileSprite(
-            0,
-            0,
-            this.sys.canvas.width,
-            this.sys.canvas.height,
-            'S1'
-        );
-        this.sky4 = this.add.tileSprite(
-            0,
-            0,
-            this.sys.canvas.width,
-            this.sys.canvas.height,
-            'S2'
-        );
-        this.sky5 = this.add.tileSprite(
-            0,
-            0,
-            this.sys.canvas.width,
-            this.sys.canvas.height,
-            'S3'
-        );
+
         this.sky.setOrigin(0,0);
-        this.sky2.setOrigin(0, 0);
-        this.sky3.setOrigin(0, 0);
-        this.sky4.setOrigin(0, 0);
-        this.sky5.setOrigin(0, 0);
-        this.sky.setScrollFactor(0);//fait en sorte que le ciel ne suive pas la caméra
-        this.sky2.setScrollFactor(0);//fait en sorte que le ciel ne suive pas la caméra
-        this.sky3.setScrollFactor(0);
-        this.sky4.setScrollFactor(0);
-        this.sky5.setScrollFactor(0);
-        //this.sky2.blendMode=Phaser.BlendModes.ADD;
+        this.sky.setScrollFactor(0,0);//fait en sorte que le ciel ne suive pas la caméra
 
         //----------collisions---------------------
 
@@ -353,14 +314,7 @@ class TableauTiled extends Tableau{
         //le ciel se déplace moins vite que la caméra pour donner un effet paralax
         this.sky.tilePositionX = this.cameras.main.scrollX;
         this.sky.tilePositionY = this.cameras.main.scrollX * 0;
-        this.sky2.tilePositionX = this.cameras.main.scrollX;
-        this.sky2.tilePositionY = this.cameras.main.scrollX * 0;
-        this.sky3.tilePositionX = this.cameras.main.scrollX * 0.5;
-        this.sky3.tilePositionY = this.cameras.main.scrollX * 0;
-        this.sky4.tilePositionX = this.cameras.main.scrollX * 0.6;
-        this.sky4.tilePositionY = this.cameras.main.scrollX * 0;
-        this.sky5.tilePositionX = this.cameras.main.scrollX * 0.7;
-        this.sky5.tilePositionY = this.cameras.main.scrollX * 0;
+
     }
 
 

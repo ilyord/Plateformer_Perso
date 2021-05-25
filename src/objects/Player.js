@@ -68,7 +68,7 @@ class Player extends Phaser.Physics.Arcade.Sprite {
      */
     jumpTo(targetX, targetY) {
 
-        if (targetX > 604) {
+        if (targetX > 1278) {
             Tableau.current.tweens.timeline({
                 targets: this.body.velocity,
                 ease: 'Linear.easeOut ',       // 'Cubic', 'Elastic', 'Bounce', 'Back'
@@ -86,7 +86,7 @@ class Player extends Phaser.Physics.Arcade.Sprite {
         //console.log("SUM OF DIRECTION=",this.x-targetX);
 
         // on set la direction du jump //
-        if (targetX < 604) {
+        if (targetX < 1278) {
             Tableau.current.tweens.timeline({
                 targets: this.body.velocity,
                 ease: 'Linear.easeOut ',       // 'Cubic', 'Elastic', 'Bounce', 'Back'
@@ -100,6 +100,7 @@ class Player extends Phaser.Physics.Arcade.Sprite {
                 ]
             })
             console.log("LEFT", "targetY :", targetY)
+            console.log("RIGHT", "mouseX :", targetX)
         }
     }
 

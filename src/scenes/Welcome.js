@@ -67,7 +67,8 @@ class Welcome extends Phaser.Scene {
 
         //---------- on affiche les images à l'écran ----------
 
-        this.add.sprite(game.config.width/2, game.config.height/2, 'Fond');
+        let startB1 = this.add.sprite(game.config.width/2, game.config.height/2, 'Fond');
+        startB1.setDisplaySize(width,height);
 
 
 
