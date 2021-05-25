@@ -84,7 +84,7 @@ This game needs to be tested, do not hesitate to give me feedback !
 
 # Version Log : #
 
-##Alpha 2.0 - Graphic's Update
+## Alpha 2.0 - Graphic's Update
 
 ### Adding :
 
@@ -96,7 +96,7 @@ This game needs to be tested, do not hesitate to give me feedback !
 - Wider camera view
 - Statics asteroids hitbox now larger to smooth player jumps
 
-##Alpha 2.0 - Big Update !
+## Alpha 2.0 - Big Update !
 
 ### Adding : 
 
