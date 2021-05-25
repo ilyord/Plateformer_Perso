@@ -18,7 +18,7 @@ https://ilyord.github.io/Plateformer_Perso/
 
 ### Character: ###
 
-- [x] running
+- [ ] running
 - [ ] jumping
 - [ ] falling
 - [ ] dashing
