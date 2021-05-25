@@ -84,14 +84,26 @@ This game needs to be tested, do not hesitate to give me feedback !
 
 # Version Log : #
 
-Alpha 2.0 Big Update !
+##Alpha 2.0 - Graphic's Update
 
-## Adding : 
+### Adding :
+
+-New background graphics
+-New plateforms tileset
+
+### Changing :
+
+- Wider camera view
+- Statics asteroids hitbox now larger to smooth player jumps
+
+##Alpha 2.0 - Big Update !
+
+### Adding : 
 
 - Statics asteroids (now as his own sprite, player bouncing on it depending of it's Y velocity)
 - Tutorial panels explaining the game's mechanics
 
-## Changing :
+### Changing :
 
 - Map to make a tutorial
 - Added Final version of 'Space Odyssey' music.
