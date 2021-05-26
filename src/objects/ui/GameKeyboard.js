@@ -14,7 +14,7 @@ class GameKeyboard extends Phaser.GameObjects.Container{
         scene.input.on('pointerdown', function(pointer){
 
             if (Tableau.current){
-                if (pointer.worldY < 1000 && pointer.worldX < 2600){
+                if (pointer.worldY < 800 && pointer.worldX < 2600){
                     //if(!Tableau.current.player.body.onFloor()) { (//si le joueur est au sol il ne peut pas sauter//)
                     Tableau.current.player.jumpTo(pointer.worldX, pointer.worldY);
                     Tableau.current.wooshShound();

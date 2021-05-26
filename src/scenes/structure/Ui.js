@@ -56,7 +56,7 @@ class Ui extends Phaser.Scene{
 
         //let pad=new GamePad(this,0,0);
         let pad=new GamePadButtons(this,0,0);
-        pad.x=this.sys.canvas.width-pad.size-32;
+        pad.x=this.sys.canvas.width-pad.size-128;
         pad.y=this.sys.canvas.height-pad.size-32;
 
 
@@ -73,7 +73,7 @@ class Ui extends Phaser.Scene{
 
         }, this);
         btFs.setOrigin(1,1)
-        btFs.setDisplaySize(48,48)
+        btFs.setDisplaySize(48*2,48*2)
         btFs.x=this.sys.canvas.width;
         btFs.y=this.sys.canvas.height;
 

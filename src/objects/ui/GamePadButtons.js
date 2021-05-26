@@ -6,7 +6,15 @@ class GamePadButtons extends GameKeyboard{
         super(scene, x, y)
         scene.add.existing(this);
 
-        this.size=size;
+
+       // this.isMobile=this.game.device.os.android || this.game.device.os.iOS;
+        if(!this.isMobile) {
+            this.size=size;
+        }
+        else
+            this.size=size*2;
+
+
         let w=this.size/3;
         let pad2=scene.add.container();
 

@@ -16,7 +16,6 @@ class Tableau extends Phaser.Scene{
      */
     preload(){
         this.load.image('smoke', 'assets/smoke.png');
-        this.load.image('spike', 'assets/spike.png');
         this.load.audio('woosh', 'assets/Sound/woosh.mp3');
         this.load.audio('woosh2', 'assets/Sound/woosh2.mp3');
         this.load.audio('playerStep', 'assets/Sound/Running.mp3');
@@ -135,9 +134,6 @@ class Tableau extends Phaser.Scene{
         this.player.move();
         //console.log(this.isWalking)
         this.fallingCheck();
-
-
-
 
 
     }
