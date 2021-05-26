@@ -71,7 +71,7 @@ class TableauTiled extends Tableau{
         let largeurDuTableau = 320*64
         let hauteurDuTableau= 50*64
         this.physics.world.setBounds(0, 0, largeurDuTableau,  hauteurDuTableau);
-        this.cameras.main.setBounds(0, 0, largeurDuTableau+1000, hauteurDuTableau);
+        this.cameras.main.setBounds(0, 0, largeurDuTableau+500, hauteurDuTableau);
         this.cameras.main.startFollow(this.player, true, 0.5, 0.5);
         //---- ajoute les plateformes simples ----------------------------
 
