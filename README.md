@@ -23,13 +23,6 @@ https://ilyord.github.io/Plateformer_Perso/
 - [ ] falling
 - [ ] dashing
 
-### Astéroïdes: ###
-
-- [x] Rotation
-- [ ] Respawn (for moving asteroids)
-
-### Misc ###
-
 -[ ] Tutorials pannels 
 
 ## Gameplay ##
@@ -44,13 +37,16 @@ https://ilyord.github.io/Plateformer_Perso/
 ### Asteroids ###
 
 - [x] Moving asteroids
+- [x] Rotation
+- [X] Respawn (for moving asteroids)
+-
 - [X] Static asteroids
 
 ## Graphism ##
 
 - [X] Asteroids
-- [x] \(Alpha) Platform
-- [x] \(Alpha) Background
+- [x] Platform
+- [x] Background
 - [x] \(Alpha) Tutorial pannels
 - [ ] Plants
 
