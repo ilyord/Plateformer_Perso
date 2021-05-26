@@ -6,7 +6,7 @@ class Welcome extends Phaser.Scene {
     preload ()
     {
         // images
-        this.load.image('Fond', 'assets/Menu/Fond.jpg');
+        this.load.image('Fond1', 'assets/Menu/Fond.jpg');
 
         this.load.image('Play', 'assets/Menu/Play.png');
 
@@ -28,20 +28,20 @@ class Welcome extends Phaser.Scene {
 
 
 
-       /* this.tweens.add(
+        this.tweens.add(
             {
-                targets:[Click],
-                duration:2000,
+                targets:['Click'],
+                duration:200,
                 yoyo: true,
                 repeat:-1,
-                delay:Math.random()*1000,
+                delay:0,
                 alpha:
                     {
-                        startDelay:Math.random()*5000,
+                        startDelay:Math.random(),
                         from:0,
                         to:1,
                     }
-            })*/
+            })
 
         //---------- booleans que l'on compte utiliser ----------
 
@@ -67,8 +67,8 @@ class Welcome extends Phaser.Scene {
 
         //---------- on affiche les images à l'écran ----------
 
-        let startB1 = this.add.sprite(game.config.width/2, game.config.height/2, 'Fond');
-        startB1.setDisplaySize(width,height);
+        let startB1 = this.add.sprite(game.config.width/2, game.config.height/2, 'Fond1');
+        startB1.setDisplaySize(width-300,height);
 
 
 

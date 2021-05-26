@@ -24,35 +24,19 @@ class MonsterFly extends ObjetEnnemi {
         this.setOffset(40, 60);
 
         //MaxSpeed
-        this.body.setMaxVelocity((Phaser.Math.FloatBetween(0.5, 2.5) * 10 - 20), ((Phaser.Math.FloatBetween(1, 2) * 300 - 250)/(this.size/1.1)*30));
-        this.body.setVelocityX(500);
+        this.body.setMaxVelocity(0, 100);
+        this.body.setVelocityY(100);
 
-
-
-    }
-
-    //RESPAWN (WIP)
-
-    /*onWorldBound(){
-        this.body.y = 0,
-            console.log("Reset ASTEROIDS")
-
-
-//constructor{
-
-
-            this.scene.events.on('update', (time, delta) => { this.update(time, delta)} );
-
+        this.scene.events.on('update', (time, delta) => { this.update(time, delta)} );
 
     }
 
-    update(){
-        if(Math.random()>0.95){
-        console.log("change de taille")
-        this.setDisplaySize((Phaser.Math.Between(50,100)),(Phaser.Math.Between(50,100)));
+    update(y){
+    if(this.y>3200){
+        this.y=0;
+       //console.log("reset ast");
     }
 }
-    }*/
 
 //Rotation en boucle
 

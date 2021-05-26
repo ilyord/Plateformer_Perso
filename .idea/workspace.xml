@@ -2,15 +2,31 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2813df63-b31b-43be-ad7c-2ad3f3e4ecb9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/Sunless_Background.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/Sunless_Background2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/tilemaps/Petite_Bleu_Plateformes_lineless.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/tilemaps/tableauTiled5.tmx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/tilemaps/tableauTiled7.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/Sunless_Background_test.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/fond/Sunless_Background_BH.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/fond/Sunless_Background_Etoile.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/fond/Sunless_Background_Galaxy.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/fond/Sunless_Background_Nuage1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/fond/Sunless_Background_Nuage2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/tilemaps/tableauTiled10.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/tilemaps/tableauTiled11.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/tilemaps/tableauTiled12.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/tilemaps/tableauTiled13.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/tilemaps/tableauTiled14.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/tilemaps/tableauTiled15.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/tilemaps/tableauTiled16.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/tilemaps/tableauTiled17.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/tilemaps/tableauTiled6.tmx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/tilemaps/tableauTiled7.tmx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/tilemaps/tableauTiled8.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/tilemaps/tableauTiled9.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/objects/MonsterFly.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/MonsterFly.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/objects/Player.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/Player.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/objects/StaticAst.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/StaticAst.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/objects/ui/GameKeyboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/ui/GameKeyboard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/objects/ui/GamePad.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/ui/GamePad.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/objects/ui/GamePadButtons.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/ui/GamePadButtons.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/scenes/TableauTiled.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/TableauTiled.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/scenes/Welcome.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/Welcome.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/scenes/structure/Tableau.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/structure/Tableau.js" afterDir="false" />
@@ -89,7 +105,8 @@
       <workItem from="1621580926985" duration="11084000" />
       <workItem from="1621601936512" duration="10183000" />
       <workItem from="1621692592482" duration="8609000" />
-      <workItem from="1621962090683" duration="4074000" />
+      <workItem from="1621962090683" duration="4745000" />
+      <workItem from="1622020639824" duration="23292000" />
     </task>
     <servers />
   </component>
@@ -110,5 +127,17 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/objects/MonsterFly.js</url>
+          <line>34</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

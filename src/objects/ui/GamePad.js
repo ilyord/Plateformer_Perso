@@ -1,6 +1,6 @@
 /**
  * Un objet qui écoute les touches du clavier et mouvements sur le pad et qui influent le déplacement du joueur
- */
+
 class GamePad extends GameKeyboard{
     constructor(scene, x, y,size=100) {
         super(scene, x, y)
@@ -54,4 +54,4 @@ class GamePad extends GameKeyboard{
     }
 
 
-}
+}*/

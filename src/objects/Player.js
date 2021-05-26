@@ -68,7 +68,8 @@ class Player extends Phaser.Physics.Arcade.Sprite {
      */
     jumpTo(targetX, targetY) {
 
-        if (targetX > 1278) {
+        if (targetX > 1278 && targetY < this.height+1000) {
+            //
             Tableau.current.tweens.timeline({
                 targets: this.body.velocity,
                 ease: 'Linear.easeOut ',       // 'Cubic', 'Elastic', 'Bounce', 'Back'
@@ -80,13 +81,14 @@ class Player extends Phaser.Physics.Arcade.Sprite {
                     }
                 ]
             })
-            console.log("RIGHT", "playerX :", this.x, "mouseX :", targetX)
+            //console.log("RIGHT", "playerX :", this.x, "mouseX :", targetX)
         }
 
         //console.log("SUM OF DIRECTION=",this.x-targetX);
 
         // on set la direction du jump //
-        if (targetX < 1278) {
+        if (targetX < 1278 && targetY < this.height+1000) {
+            //1278
             Tableau.current.tweens.timeline({
                 targets: this.body.velocity,
                 ease: 'Linear.easeOut ',       // 'Cubic', 'Elastic', 'Bounce', 'Back'
@@ -99,8 +101,8 @@ class Player extends Phaser.Physics.Arcade.Sprite {
                     }
                 ]
             })
-            console.log("LEFT", "targetY :", targetY)
-            console.log("RIGHT", "mouseX :", targetX)
+            //console.log("LEFT", "targetY :", targetY)
+            //console.log("RIGHT", "mouseX :", targetX)
         }
     }
 
@@ -129,7 +131,7 @@ class Player extends Phaser.Physics.Arcade.Sprite {
 
         switch (true){
             case this._directionX<0:
-                this.setVelocityX(-200);
+                this.setVelocityX(-250);
                 this.anims.play('left', true);
                 //Tableau.sounds.play('playerStep');
                 break;
@@ -142,7 +144,7 @@ class Player extends Phaser.Physics.Arcade.Sprite {
 
 
             case this._directionX>0:
-                this.setVelocityX(200);
+                this.setVelocityX(250);
                 this.anims.play('right', true);
                 //Tableau.sounds.play('playerStep');
                 break;

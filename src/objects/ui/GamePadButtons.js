@@ -2,12 +2,12 @@
  * Un objet qui écoute les touches du clavier et mouvements sur le pad et qui influent le déplacement du joueur
  */
 class GamePadButtons extends GameKeyboard{
-    constructor(scene, x, y,size=100) {
+    constructor(scene, x, y,size=200) {
         super(scene, x, y)
         scene.add.existing(this);
 
         this.size=size;
-        let w=this.size/2;
+        let w=this.size/3;
         let pad2=scene.add.container();
 
         let btnUP=scene.add.circle(0,0,w/2,0xffffff,0.3).setInteractive();
@@ -16,14 +16,14 @@ class GamePadButtons extends GameKeyboard{
         let btnDOWN=scene.add.circle(0,0,w/2,0xffffff,0.3).setInteractive();
 
 
-        let btnA=scene.add.circle(0,0,w/2,0xffffff,0.3).setInteractive();
+        //let btnA=scene.add.circle(0,0,w/2,0xffffff,0.3).setInteractive();
 
         this.add(btnUP);
         this.add(btnLEFT);
         this.add(btnRIGHT);
         this.add(btnDOWN);
 
-        this.add(btnA);
+        //this.add(btnA);
 
         btnUP.x=w*1;
         btnLEFT.x=w*0;
@@ -33,8 +33,8 @@ class GamePadButtons extends GameKeyboard{
         btnDOWN.x=w;
         btnDOWN.y=w*2;
 
-        btnA.x=scene.sys.canvas.width * -1 + w * 4;
-        btnA.y=w*1;
+        //btnA.x=scene.sys.canvas.width * -1 + w * 4;
+        //btnA.y=w*1;
 
 
         btnLEFT.on('pointerdown',function(){
@@ -45,9 +45,16 @@ class GamePadButtons extends GameKeyboard{
         });
         btnUP.on('pointerdown',function(){
             Tableau.current.player.directionY=-1;
+            Tableau.current.isWalking =false;
+            Tableau.current.player.setGravityY(500);
         });
         btnDOWN.on('pointerdown',function(){
             Tableau.current.player.directionY=1;
+            Tableau.current.player.setVelocityY(+900);
+            Tableau.current.player.setGravityY(2000);
+            Tableau.current.player.setBounceY(3);
+            Tableau.current.player.setBounceX(3);
+            Tableau.current.wooshShound2();
         });
 
         btnLEFT.on('pointerup',function(){
@@ -58,18 +65,24 @@ class GamePadButtons extends GameKeyboard{
         });
         btnUP.on('pointerup',function(){
             Tableau.current.player.directionY=-0;
+            Tableau.current.isWalking =false;
+            Tableau.current.player.setGravityY(950);
         });
         btnDOWN.on('pointerup',function(){
             Tableau.current.player.directionY=0;
+            Tableau.current.isWalking =false;
+            Tableau.current.player.setGravityY(950);
+            Tableau.current.player.setBounceY(0);
+            Tableau.current.player.setBounceX(0);
         });
 
 
-        btnA.on('pointerdown',function(){
+        /*btnA.on('pointerdown',function(){
             Tableau.current.player.directionY=-1;
         });
         btnA.on('pointerup',function(){
             Tableau.current.player.directionY=0;
-        });
+        });*/
 
 
 

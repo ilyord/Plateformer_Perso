@@ -14,13 +14,14 @@ class GameKeyboard extends Phaser.GameObjects.Container{
         scene.input.on('pointerdown', function(pointer){
 
             if (Tableau.current){
-                if (0 < pointer.worldY < 470 && 20 < pointer.worldX < 1093){
+                if (pointer.worldY < 1000 && pointer.worldX < 2600){
                     //if(!Tableau.current.player.body.onFloor()) { (//si le joueur est au sol il ne peut pas sauter//)
                     Tableau.current.player.jumpTo(pointer.worldX, pointer.worldY);
                     Tableau.current.wooshShound();
                     Tableau.current.cameras.main.shake(70,0.0040,false);
+                    //console.log("pointer.worldX:", pointer.worldX);
                     //console.log("pointer.worldY:", pointer.worldY);
-                    console.log("X :", Tableau.current.player.x, "Y :",Tableau.current.player.y)
+                    //console.log("X :", Tableau.current.player.x, "Y :",Tableau.current.player.y)
                     //}
                 }
             }
@@ -39,7 +40,7 @@ class GameKeyboard extends Phaser.GameObjects.Container{
                     {
                         Tableau.current.isWalking = true;
                         //this.sound.play('run');
-                        console.log(Tableau.current.isWalking)
+                        //console.log(Tableau.current.isWalking)
                     }
 
                     else
@@ -56,7 +57,7 @@ class GameKeyboard extends Phaser.GameObjects.Container{
                     {
                         Tableau.current.isWalking = true;
                         //this.sound.play('run');
-                        console.log(Tableau.current.isWalking)
+                        //console.log(Tableau.current.isWalking)
                     }
 
 
@@ -106,7 +107,7 @@ class GameKeyboard extends Phaser.GameObjects.Container{
                 case "ArrowUp":
                     Tableau.current.player.directionY=0;
                     Tableau.current.isWalking =false;
-                    Tableau.current.player.setGravityY(1100);
+                    Tableau.current.player.setGravityY(950);
                     break;
 
 
@@ -114,7 +115,7 @@ class GameKeyboard extends Phaser.GameObjects.Container{
 
                 case "ArrowDown":
                     Tableau.current.isWalking =false;
-                    Tableau.current.player.setGravityY(1100);
+                    Tableau.current.player.setGravityY(950);
                     Tableau.current.player.setBounceY(0);
                     Tableau.current.player.setBounceX(0);
                     break;
