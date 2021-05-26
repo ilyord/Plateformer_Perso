@@ -37,9 +37,10 @@ https://ilyord.github.io/Plateformer_Perso/
 ### Asteroids ###
 
 - [x] Moving asteroids
-- [x] Rotation
-- [X] Respawn (for moving asteroids)
--
+- - [x] Rotation
+- - [X] Respawn (for moving asteroids)
+
+
 - [X] Static asteroids
 
 ## Graphism ##
