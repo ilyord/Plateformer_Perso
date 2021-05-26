@@ -84,6 +84,20 @@ This game needs to be tested, do not hesitate to give me feedback !
 
 # Version Log : #
 
+## Alpha 2.0 - Graphic's Update 2
+
+### Adding :
+
+- Optimized version of background images.
+- Moving asteroids are now respanwing !
+- Compatiblity for smartphones and tablets
+
+### Changing :
+
+- Player move faster
+- Gravity reduced
+- Moving asteroids all have the same Y speed (allowing patern for level design)
+
 ## Alpha 2.0 - Graphic's Update
 
 ### Adding :
