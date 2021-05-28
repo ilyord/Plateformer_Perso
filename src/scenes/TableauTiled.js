@@ -19,7 +19,7 @@ class TableauTiled extends Tableau{
         // nos images
         this.load.image('tiles', 'assets/tilemaps/Petite_Bleu_Plateformes_lineless.png');
         //les données du tableau qu'on a créé dans TILED
-        this.load.tilemapTiledJSON('map', 'assets/tilemaps/tableauTiled21.json');
+        this.load.tilemapTiledJSON('map', 'assets/tilemaps/tableauTiled23.json');
 
         // -----et puis aussi-------------
         this.load.image('AA', 'assets/B.png');
@@ -55,7 +55,6 @@ class TableauTiled extends Tableau{
         this.add.image(17750,1100,'BH').setDepth(901)
 
         //TUTO
-
 
 
             const image = this.add.image(2100, 600, 'tuto_basic').setDepth(998);
@@ -282,15 +281,14 @@ class TableauTiled extends Tableau{
             let particles = ici.add.particles("particles", "death-white");
             let emmiter = particles.createEmitter({
                 frequency:1,
-                lifespan: 300,
+                lifespan: 150,
                 quantity:32,
                 tint: [0xFFFFFF],
                 rotate: {min: 0, max: 360},
                 scale: {start: 0.2, end: 0.3},
-                alpha: {start: 0.5, end: 0},
+                alpha: {start: 0.1, end: 0},
                 blendMode: Phaser.BlendModes.ADD,
-                maxVelocityY : -20,
-                speedY : -20,
+
 
             });
 
@@ -411,15 +409,10 @@ class TableauTiled extends Tableau{
         super.update();
         this.moveParallax();
 
-
         for(let ast of this.asteroides){
             ast.loop();
         }
 
-
-
-        //console.log(game.input.mousePointer.x,
-        //game.input.mousePointer.y);
 
 
         //optimisation

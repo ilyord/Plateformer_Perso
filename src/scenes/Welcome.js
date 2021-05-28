@@ -10,7 +10,7 @@ class Welcome extends Phaser.Scene {
 
         this.load.image('Play', 'assets/Menu/Play.png');
 
-        this.load.image('Click','assets/Menu/Click.jpg')
+        var click = this.load.image('Click','assets/Menu/Click.jpg')
 
 
         // audios
@@ -28,20 +28,6 @@ class Welcome extends Phaser.Scene {
 
 
 
-        this.tweens.add(
-            {
-                targets:['Click'],
-                duration:200,
-                yoyo: true,
-                repeat:-1,
-                delay:0,
-                alpha:
-                    {
-                        startDelay:Math.random(),
-                        from:0,
-                        to:1,
-                    }
-            })
 
         //---------- booleans que l'on compte utiliser ----------
 
@@ -56,8 +42,8 @@ class Welcome extends Phaser.Scene {
             {
                 mute: false,
                 volume : 0.4,
-                rate : 0.7,
-                detune: 0,
+                rate : 0.1,
+                detune: 100,
                 seek: 0,
                 loop: true,
                 delay: 0.2,

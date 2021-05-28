@@ -55,10 +55,18 @@ class Player extends Phaser.Physics.Arcade.Sprite {
             key: 'dash',
             frames: [{key: 'player', frame: 13}],
             frameRate: 1,
+
         });
 
         this._directionX = 0;
         this._directionY = 0;
+
+        this.on('animationcomplete',function () {
+            if(this.anims.currentAnim.key === 'dash'){
+                this.Dashing = false;
+                console.log("CUL");
+            }
+        });
 
     }
     /**
@@ -68,9 +76,11 @@ class Player extends Phaser.Physics.Arcade.Sprite {
      */
     jumpTo(targetX, targetY) {
 
+        this.anims.play('dash', false);
+
         if (targetX > 1278 && targetY < this.height+1000) {
+
             //
-            this.anims.play('dash', true);
             Tableau.current.tweens.timeline({
                 targets: this.body.velocity,
                 ease: 'Linear.easeOut ',       // 'Cubic', 'Elastic', 'Bounce', 'Back'
@@ -90,7 +100,6 @@ class Player extends Phaser.Physics.Arcade.Sprite {
         // on set la direction du jump //
         if (targetX < 1278 && targetY < this.height+1000) {
             //1278
-            this.anims.play('dash', true);
             Tableau.current.tweens.timeline({
                 targets: this.body.velocity,
                 ease: 'Linear.easeOut ',       // 'Cubic', 'Elastic', 'Bounce', 'Back'
@@ -127,6 +136,7 @@ class Player extends Phaser.Physics.Arcade.Sprite {
         this.directionX=0;
     }
 
+
     /**
      * Déplace le joueur en fonction des directions données
      */
@@ -143,9 +153,8 @@ class Player extends Phaser.Physics.Arcade.Sprite {
                 break;
 
 //---------------------Préparation pour animation en l'air---------------------------------//
-            case this._directionY<0:
-                this.jumpSpeed
-                this.anims.play('inAir', true);
+            case this._directionY < 0:
+                this.anims.play('inAir', false);
                 break;
 //-----------------------------------------------------------------------------------------//
 

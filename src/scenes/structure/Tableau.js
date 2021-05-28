@@ -243,6 +243,7 @@ class Tableau extends Phaser.Scene{
 
     }
 
+
     DeathSound(PlayerYY){
 
         //Volume en fonction de l'avancée du joueur
@@ -285,17 +286,14 @@ class Tableau extends Phaser.Scene{
         star.emit("disabled");
         ui.gagne();
 
+
         //va lister tous les objets de la scène pour trouver les étoies et vérifier si elles sont actives
         
         let totalActive=0;
-        for(let child of this.children.getChildren()){
-            if(child.texture && child.texture.key==="star"){
-                if(child.active){
-                    totalActive++;
-                }
-            }
-        }
-        if(totalActive===1){
+        totalActive += 1;
+        console.log(totalActive);
+
+        if(totalActive>1){
             this.win();
         }
         
@@ -366,6 +364,17 @@ class Tableau extends Phaser.Scene{
      * Quand on a gagné
      */
     win(){
+        console.log("Function_win")
+        this.cameras.main.fadeOut(2000, 0, 0, 0)
+        this.cameras.main.once(Phaser.Cameras.Scene2D.Events.FADE_OUT_COMPLETE, (cam, effect) =>
+        {
+            this.game.sound.stopAll();
+           ui.add.text(width/2-300,height/2-100,"Press F5 to restart...",{
+               font: '32px "Amatic SC"',
+               align: 'center',
+               fill: '#fff'
+           }).setScale(3,3);
+        })
     }
 }
 

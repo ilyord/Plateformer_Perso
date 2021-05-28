@@ -12,10 +12,10 @@ class StaticAst extends ObjetEnnemi {
         this.rotation = 175;
 
         //Size et Offset
-        this.setDisplaySize(158*0.5,165*0.5);
-        this.setBodySize(this.body.width - 20, this.body.height - 100);
+        this.setDisplaySize(158*0.6,165*0.6);
+        this.setBodySize(this.body.width+30, this.body.height - 120);
         //this.body.rotation = this.rotation;
-        this.setOffset(15, 60);
+        this.setOffset(-15, 60);
 
 
 
