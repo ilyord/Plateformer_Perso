@@ -11,56 +11,55 @@ class Player extends Phaser.Physics.Arcade.Sprite {
         this.setGravityY(1100);
         this.setFriction(100, 100);
 
-        this.setBodySize(18, 85);
-        this.setOffset(+7, +7);
+        this.setBodySize(25, 70);
+        this.setOffset(+25, 3);
+
 
 
 
         //ANIMATION
         this.anims.create({
             key: 'left',
-            frames: this.anims.generateFrameNumbers('player', {start: 0, end: 3}),
-            frameRate: 10,
-            repeat: -1
+            flipX : true,
+            frames: this.anims.generateFrameNumbers('player', {start: 0, end: 9}),
+            frameRate: 9,
+            repeat: -1,
+
         });
 
         this.anims.create({
             key: 'right',
-            frames: this.anims.generateFrameNumbers('player', {start: 5, end: 8}),
-            frameRate: 10,
-            repeat: -1
+            frames: this.anims.generateFrameNumbers('player', {start: 0, end: 9}),
+            frameRate: 9,
+            repeat: -1,
         });
         this.anims.create({
             key: 'turn',
-            frames: [{key: 'player', frame: 4}],
-            frameRate: 20
+            frames: [{key: 'player', frame: 10}],
+            frameRate: 20,
         });
         this.anims.create({
             key: 'inAir',
-            frames: [{key: 'player', frame: 4}],
-            frameRate: 20
+            frames: this.anims.generateFrameNumbers('player', {start: 11, end: 12}),
+            frameRate: 5,
+            repeat :-1,
+        });
+        /*this.anims.create({
+            key: 'jump',
+            frames: this.anims.generateFrameNumbers('player', {start: 8, end: 9}),
+            frameRate: 6,
+            repeat :-1,
+        });*/
+        this.anims.create({
+            key: 'dash',
+            frames: [{key: 'player', frame: 13}],
+            frameRate: 1,
         });
 
         this._directionX = 0;
         this._directionY = 0;
 
     }
-
-    /*
-        AddSprite (spriteX,spriteY) {
-            constructor(scene, x, y)
-            {
-                var AbsoluteX = sprite.x;
-                var AbsoluteY = sprite.y;
-
-                if (this.body.onFloor()) {
-                    this.jumpTo(sprite.x, sprite.y);
-                    console.log("pointerX:", pointer.x);
-
-                }
-            }
-        } */
-
     /**
      * //DASH// *
      * @param targetX
@@ -70,6 +69,7 @@ class Player extends Phaser.Physics.Arcade.Sprite {
 
         if (targetX > 1278 && targetY < this.height+1000) {
             //
+            this.anims.play('dash', true);
             Tableau.current.tweens.timeline({
                 targets: this.body.velocity,
                 ease: 'Linear.easeOut ',       // 'Cubic', 'Elastic', 'Bounce', 'Back'
@@ -89,6 +89,7 @@ class Player extends Phaser.Physics.Arcade.Sprite {
         // on set la direction du jump //
         if (targetX < 1278 && targetY < this.height+1000) {
             //1278
+            this.anims.play('dash', true);
             Tableau.current.tweens.timeline({
                 targets: this.body.velocity,
                 ease: 'Linear.easeOut ',       // 'Cubic', 'Elastic', 'Bounce', 'Back'
@@ -130,23 +131,32 @@ class Player extends Phaser.Physics.Arcade.Sprite {
     move(){
 
         switch (true){
-            case this._directionX<0:
+            case this._directionX<0 && this.body.blocked.down:
                 this.setVelocityX(-250);
                 this.anims.play('left', true);
+                this.flipX=true;
+                this.setOffset(+15, 10);
                 //Tableau.sounds.play('playerStep');
                 break;
 
 //---------------------Préparation pour animation en l'air---------------------------------//
-            case this._directionY<0:
+            /*case this._directionY<0:
                 this.anims.play('inAir', true);
-                break;
+                break;*/
 //-----------------------------------------------------------------------------------------//
 
+            /*case this.body.velocity.y < 0:
+                this.anims.play('inAir', true);
 
-            case this._directionX>0:
+                break;*/
+
+
+            case this._directionX>0 && this.body.blocked.down:
                 this.setVelocityX(250);
                 this.anims.play('right', true);
                 //Tableau.sounds.play('playerStep');
+                this.flipX=false;
+                this.setOffset(+25, 10);
                 break;
 
             default:
@@ -160,10 +170,17 @@ class Player extends Phaser.Physics.Arcade.Sprite {
         }
 
 
+
         if (this._directionX > 0) {
             if(!this.body.blocked.down || !this.body.touching.down){
+
                 this.setVelocityX(300)}
             }
+        if (this._directionX < 0) {
+            if(!this.body.blocked.down || !this.body.touching.down){
+
+                this.setVelocityX(-300)}
+        }
 
     }
 }

@@ -2,25 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2813df63-b31b-43be-ad7c-2ad3f3e4ecb9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/tilemaps/Petite_Bleu_Plateformes_lineless.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/tilemaps/tableauTiled18.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/tilemaps/tableauTiled19.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/tilemaps/tableauTiled20.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/tilemaps/tableauTiled21.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/tuto/Small_Avoid_Ast_Tutorial_Sign2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/tuto/Small_Basics_Tutorial_Sign3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/tuto/Small_Dash_Tutorial_Sign.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/Re_Resized_Small_Alessia_Running.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/Re_Resized_Small_Alessia_Running2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/Re_Resized_Small_Alessia_Running3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/Re_Resized_Small_Alessia_Running4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/Re_Resized_Small_Alessia_Running5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/Re_Resized_Small_Alessia_Running6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/Re_Resized_Small_Alessia_Running7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/Re_Resized_Small_Alessia_Running8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/Re_Resized_Small_Alessia_Running9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/Resize_Small_Alessia_Running.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/star.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/star.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/tilemaps/Petite_Bleu_Plateformes_lineless.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/tilemaps/Petite_Bleu_Plateformes_lineless.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/tilemaps/tableauTiled8.tmx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/tilemaps/tableauTiled8.tmx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/tuto/Small_Avoid_Ast_Tutorial_Sign.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/tuto/Small_Basics_Tutorial_Sign.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/Aplayer.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/objects/Player.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/Player.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/objects/ui/GameKeyboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/ui/GameKeyboard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/objects/ui/GamePadButtons.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/ui/GamePadButtons.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scenes/TableauTiled.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/TableauTiled.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/scenes/structure/Tableau.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/structure/Tableau.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scenes/structure/Ui.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/structure/Ui.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +58,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../PXL" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -98,7 +94,9 @@
       <workItem from="1621692592482" duration="8609000" />
       <workItem from="1621962090683" duration="4745000" />
       <workItem from="1622020639824" duration="23292000" />
-      <workItem from="1622049967545" duration="7045000" />
+      <workItem from="1622049967545" duration="7660000" />
+      <workItem from="1622118699264" duration="963000" />
+      <workItem from="1622120235431" duration="12408000" />
     </task>
     <servers />
   </component>

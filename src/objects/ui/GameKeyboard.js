@@ -34,40 +34,14 @@ class GameKeyboard extends Phaser.GameObjects.Container{
 
                 case "ArrowRight":
                         Tableau.current.player.directionX=1;
-
-                    if (Tableau.current.player.body.onFloor())
-
-                    {
-                        Tableau.current.isWalking = true;
-                        //this.sound.play('run');
-                        //console.log(Tableau.current.isWalking)
-                    }
-
-                    else
-                        Tableau.current.isWalking = false;
-
                     break;
 
                 case "ArrowLeft":
                         Tableau.current.player.directionX=-1;
 
-
-                    if (Tableau.current.player.body.onFloor())
-
-                    {
-                        Tableau.current.isWalking = true;
-                        //this.sound.play('run');
-                        //console.log(Tableau.current.isWalking)
-                    }
-
-
-                    else
-                        Tableau.current.isWalking = false;
-
                     break;
 
                 case "ArrowUp":
-                    Tableau.current.isWalking =false;
                     Tableau.current.player.directionY=-1;
                     Tableau.current.player.setGravityY(500);
                     break;
@@ -96,17 +70,14 @@ class GameKeyboard extends Phaser.GameObjects.Container{
             switch (kevent.key){
                 case "ArrowRight":
                     Tableau.current.player.directionX=0;
-                    Tableau.current.isWalking =false;
                     break;
 
                 case "ArrowLeft":
                     Tableau.current.player.directionX=0;
-                    Tableau.current.isWalking =false;
                     break;
 
                 case "ArrowUp":
                     Tableau.current.player.directionY=0;
-                    Tableau.current.isWalking =false;
                     Tableau.current.player.setGravityY(950);
                     break;
 
