@@ -10,7 +10,7 @@ https://ilyord.github.io/Plateformer_Perso/
 ## ALPHA 2.0 ##
 
 - Concept Art and illustration by Marie Charbonnier
-- Programming, designs, music, animations by Andrea Michel
+- Programming, graphism, music, animations by Andrea Michel
 
 # Features #
 
@@ -18,12 +18,12 @@ https://ilyord.github.io/Plateformer_Perso/
 
 ### Character: ###
 
-- [ ] running
+- [X] running
 - [ ] jumping
-- [ ] falling
+- [X] falling
 - [ ] dashing
 
--[ ] Tutorials pannels 
+-[X] Tutorials pannels 
 
 ## Gameplay ##
 
@@ -31,6 +31,7 @@ https://ilyord.github.io/Plateformer_Perso/
 
 - [x] Basic mouvements
 - [X] Dash
+- - [X] Dash - Cooldown
 - [X] Super-Bounce
 - [X] Interaction with game objetcs (bouncing, looting)
 
