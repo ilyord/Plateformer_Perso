@@ -61,7 +61,7 @@ https://ilyord.github.io/Plateformer_Perso/
 - [x] Bouncing
 - [x] Dashing
 - [ ] Footstep
-- [ ] Dying 
+- [X] Dying 
 - [ ] Landing
 
 
@@ -71,9 +71,9 @@ https://ilyord.github.io/Plateformer_Perso/
 
 # VFX #
 
-- [x] When player collides
-- [ ] When player walks 
-- [ ] When player dash
+- [X] When player collides
+- [X] When player walks 
+- [X] When player dash
 - [ ] \(Optional) Trail for asteroids
 - [ ] \(Optional) Background
 
