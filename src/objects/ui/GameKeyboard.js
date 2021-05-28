@@ -9,9 +9,11 @@ class GameKeyboard extends Phaser.GameObjects.Container{
         //Ecoute du click
 
         this.cursors = scene.input.keyboard.createCursorKeys();
+        var CdDash = 0;
 
         //Dash
         scene.input.on('pointerdown', function(pointer){
+            if(CdDash<3)
 
             if (Tableau.current){
                 if (pointer.worldY < 800 && pointer.worldX < 2600){
@@ -23,9 +25,12 @@ class GameKeyboard extends Phaser.GameObjects.Container{
                     //console.log("pointer.worldY:", pointer.worldY);
                     //console.log("X :", Tableau.current.player.x, "Y :",Tableau.current.player.y)
                     //}
+                    CdDash +=1;
+                    console.log("CdDash", CdDash);
                 }
             }
-        });
+        })
+
 
         //INPUT DOWN
 
@@ -57,6 +62,7 @@ class GameKeyboard extends Phaser.GameObjects.Container{
                         Tableau.current.player.setBounceY(3);
                         Tableau.current.player.setBounceX(3);
                         Tableau.current.wooshShound2();
+                        CdDash -=1;
 
 
                     }

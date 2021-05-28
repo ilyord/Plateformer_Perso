@@ -17,6 +17,7 @@ class Player extends Phaser.Physics.Arcade.Sprite {
 
 
 
+
         //ANIMATION
         this.anims.create({
             key: 'left',
@@ -108,6 +109,7 @@ class Player extends Phaser.Physics.Arcade.Sprite {
     }
 
 
+
     set directionX(value){
         this._directionX=value;
     }
@@ -128,6 +130,7 @@ class Player extends Phaser.Physics.Arcade.Sprite {
     /**
      * Déplace le joueur en fonction des directions données
      */
+
     move(){
 
         switch (true){
@@ -140,9 +143,10 @@ class Player extends Phaser.Physics.Arcade.Sprite {
                 break;
 
 //---------------------Préparation pour animation en l'air---------------------------------//
-            /*case this._directionY<0:
+            case this._directionY<0:
+                this.jumpSpeed
                 this.anims.play('inAir', true);
-                break;*/
+                break;
 //-----------------------------------------------------------------------------------------//
 
             /*case this.body.velocity.y < 0:

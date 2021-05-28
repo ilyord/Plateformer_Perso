@@ -230,7 +230,7 @@ class Tableau extends Phaser.Scene{
                 detune: Phaser.Math.FloatBetween(0,100),
                 seek: 0,
                 loop: false,
-                delay:0.1,
+                delay:0.01,
 
                 Oncomplete: function (){
                     this.game.sound.stopAll();

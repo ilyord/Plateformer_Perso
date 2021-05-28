@@ -55,13 +55,60 @@ class TableauTiled extends Tableau{
         this.add.image(17750,1100,'BH').setDepth(901)
 
         //TUTO
-        this.add.image(2100,600,'tuto_basic').setDepth(998);
-        this.add.image(3300,400,'tuto_dash').setDepth(998).setScale(0.8,0.8);
-        this.add.image(7730,1300,'tuto_superBounce').setDepth(998).setScale(0.7,0.7);
-        this.add.image(6930,1235,'tuto_avoid').setDepth(998).setScale(0.8,0.8);
-        this.add.image(9590,1050,'tuto_jumpOn').setDepth(998).setScale(0.8,0.8).setScrollFactor(0,0.1);
 
 
+
+            const image = this.add.image(2100, 600, 'tuto_basic').setDepth(998);
+            const image2 =this.add.image(3300,400,'tuto_dash').setDepth(998).setScale(0.8,0.8);
+            const image3 =this.add.image(7730,1300,'tuto_superBounce').setDepth(998).setScale(0.7,0.7);
+            const image4 =this.add.image(6930,1235,'tuto_avoid').setDepth(998).setScale(0.8,0.8);
+            const image5 =this.add.image(9590,1050,'tuto_jumpOn').setDepth(998).setScale(0.8,0.8).setScrollFactor(0,0.1);
+
+            this.tweens.add({
+                targets: image,
+                x: 2100,
+                y: 600+25,
+                ease: 'Linear.easeInOut',
+                yoyo: true,
+                repeat: -1,
+                duration: 3000
+            });
+        this.tweens.add({
+            targets: image2,
+            x: 3300,
+            y: 400+35,
+            ease: 'Sin.easeInOut',
+            yoyo: true,
+            repeat: -1,
+            duration: 2000
+        });
+        this.tweens.add({
+            targets: image3,
+            x: 7730,
+            y: 1300-25,
+            ease: 'Linear.easeInOut',
+            yoyo: true,
+            repeat: -1,
+            duration: 3000
+        });
+        this.tweens.add({
+            targets: image4,
+            x: 6930,
+            y: 1235+25,
+            ease: 'Linear.easeInOut',
+            yoyo: true,
+            repeat: -1,
+            duration: 3000
+        });
+        this.tweens.add({
+            targets: image5,
+            x: 9590,
+            y: 1050+25,
+            ease: 'Linear.easeInOut',
+            yoyo: true,
+            repeat: -1,
+            duration: 3000
+        });
 
         //on en aura besoin...
         let ici=this;
@@ -227,6 +274,31 @@ class TableauTiled extends Tableau{
             starsFxContainer.add(particles);
         });
 
+
+        //---------------ParticulesPlayer-----------------------//
+
+
+
+            let particles = ici.add.particles("particles", "death-white");
+            let emmiter = particles.createEmitter({
+                frequency:1,
+                lifespan: 300,
+                quantity:32,
+                tint: [0xFFFFFF],
+                rotate: {min: 0, max: 360},
+                scale: {start: 0.2, end: 0.3},
+                alpha: {start: 0.5, end: 0},
+                blendMode: Phaser.BlendModes.ADD,
+                maxVelocityY : -20,
+                speedY : -20,
+
+            });
+
+
+        //if(this.player.body.touching.down) {
+            emmiter.startFollow(this.player, 0, 40);
+            starsFxContainer.add(particles);
+        //}
 
 
 
