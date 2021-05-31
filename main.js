@@ -1,6 +1,6 @@
 
-let width=(20*64)*2; //1280;
-let height=(10*64)*2; //780;
+let width=(20*64)*2;
+let height=(10*64)*2;
 
 let config = {
     type: Phaser.AUTO,

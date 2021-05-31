@@ -84,16 +84,12 @@ class GamePadButtons extends GameKeyboard{
             Tableau.current.player.setBounceX(0);
         });
 
-
         /*btnA.on('pointerdown',function(){
             Tableau.current.player.directionY=-1;
         });
         btnA.on('pointerup',function(){
             Tableau.current.player.directionY=0;
         });*/
-
-
-
 
     }
 

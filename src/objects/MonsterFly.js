@@ -8,15 +8,15 @@ class MonsterFly extends ObjetEnnemi {
         super(scene, x, y, "AA");
 
         //Size
-        let sz = Math.random() * 55 + 80;
+        let sz = Math.random() * 80 + 50;
         this.setDisplaySize(sz, sz);
         this.size = sz;
 
         //Gravity
         this.body.allowGravity = true;
-        this.body.setGravityY(1000/this.size);
-        this.rotateSpeed = Math.random() + 10 * (this.size / 200);
-        this.rotateSpeed = this.rotateSpeed / 100;
+        this.body.setGravityY(1500/this.size);
+        this.rotateSpeed = Math.random() * 180 / this.size;
+        this.rotateSpeed = this.rotateSpeed / 50;
 
 
         //Offset
@@ -30,6 +30,9 @@ class MonsterFly extends ObjetEnnemi {
         this.scene.events.on('update', (time, delta) => { this.update(time, delta)} );
 
     }
+
+
+//Respawn
 
     update(y){
     if(this.y>3200){

@@ -25,14 +25,7 @@ class Welcome extends Phaser.Scene {
 
     create()
     {
-
-
-
-
-        //---------- booleans que l'on compte utiliser ----------
-
         this.touchePressed = false;
-
 
         //---------- gestion des musiques ----------
 
@@ -57,10 +50,7 @@ class Welcome extends Phaser.Scene {
         startB1.setDisplaySize(width-300,height);
 
 
-
         //---------- on affiche les boutons ----------
-
-        //let startB1 = this.add.sprite(game.config.width/2, game.config.height/2-100, 'Play');
 
         let startB2 = this.add.sprite(game.config.width/2, game.config.height/2, 'Click');
         startB2.setDisplaySize(320,80);

@@ -2,20 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2813df63-b31b-43be-ad7c-2ad3f3e4ecb9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/tilemaps/tableauTiled22.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/tilemaps/tableauTiled23.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/tilemaps/tableauTiled24.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/tilemaps/tableauTiled25.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/tilemaps/tableauTiled26.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/tilemaps/Petite_Bleu_Plateformes_lineless.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/tilemaps/Petite_Bleu_Plateformes_lineless.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/tilemaps/tableauTiled8.tmx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/tilemaps/tableauTiled8.tmx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tilemaps/tableauTiled23.json" beforeDir="false" afterPath="$PROJECT_DIR$/assets/tilemaps/tableauTiled23.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/objects/MonsterFly.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/MonsterFly.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/objects/Player.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/Player.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/objects/StaticAst.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/StaticAst.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/objects/ui/GameKeyboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/ui/GameKeyboard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/objects/ui/GamePadButtons.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/ui/GamePadButtons.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/scenes/TableauTiled.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/TableauTiled.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/scenes/Welcome.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/Welcome.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/scenes/structure/Tableau.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/structure/Tableau.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scenes/structure/Ui.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/structure/Ui.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,6 +99,7 @@
       <workItem from="1622120235431" duration="12408000" />
       <workItem from="1622186790777" duration="11042000" />
       <workItem from="1622207715737" duration="20384000" />
+      <workItem from="1622283001923" duration="19976000" />
     </task>
     <servers />
   </component>

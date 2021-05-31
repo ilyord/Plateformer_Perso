@@ -15,13 +15,14 @@ class TableauTiled extends Tableau{
 
     preload() {
         super.preload();
-        // ------pour TILED-------------
-        // nos images
-        this.load.image('tiles', 'assets/tilemaps/Petite_Bleu_Plateformes_lineless.png');
-        //les données du tableau qu'on a créé dans TILED
-        this.load.tilemapTiledJSON('map', 'assets/tilemaps/tableauTiled23.json');
 
-        // -----et puis aussi-------------
+        // ------pour TILED-------------
+
+        this.load.image('tiles', 'assets/tilemaps/Petite_Bleu_Plateformes_lineless.png');
+        this.load.tilemapTiledJSON('map', 'assets/tilemaps/tableauTiled26.json');
+
+        // nos images
+
         this.load.image('AA', 'assets/B.png');
         this.load.image('CC', 'assets/Asteroide2_OPTI.png');
         this.load.image('star', 'assets/star.png');
@@ -38,11 +39,11 @@ class TableauTiled extends Tableau{
         this.load.image('tuto_superBounce', 'assets/tuto/Small_Super_Bounce_Tutorial_Sign.jpg');
         this.load.image('tuto_dash', 'assets/tuto/Small_Dash_Tutorial_Sign.jpg');
 
+        this.load.image('smoke','assets/smoke.png')
 
 
+        //atlas de texture généré on y trouve notre étoiles et une tête de mort
 
-        //atlas de texture généré avec https://free-tex-packer.com/app/
-        //on y trouve notre étoiles et une tête de mort
         this.load.atlas('particles', 'assets/particles/particles.png', 'assets/particles/particles.json');
     }
     create() {
@@ -61,7 +62,9 @@ class TableauTiled extends Tableau{
             const image2 =this.add.image(3300,400,'tuto_dash').setDepth(998).setScale(0.8,0.8);
             const image3 =this.add.image(7730,1300,'tuto_superBounce').setDepth(998).setScale(0.7,0.7);
             const image4 =this.add.image(6930,1235,'tuto_avoid').setDepth(998).setScale(0.8,0.8);
-            const image5 =this.add.image(9590,1050,'tuto_jumpOn').setDepth(998).setScale(0.8,0.8).setScrollFactor(0,0.1);
+            const image5 =this.add.image(12750,1825,'tuto_jumpOn').setDepth(998).setScale(0.8,0.8);
+
+            //TWEENS TUTO_PANEL
 
             this.tweens.add({
                 targets: image,
@@ -101,12 +104,12 @@ class TableauTiled extends Tableau{
         });
         this.tweens.add({
             targets: image5,
-            x: 9590,
-            y: 1050+25,
+            x: 12750,
+            y: 1825+25,
             ease: 'Linear.easeInOut',
             yoyo: true,
             repeat: -1,
-            duration: 3000
+            duration: 4000
         });
 
         //on en aura besoin...
@@ -131,6 +134,8 @@ class TableauTiled extends Tableau{
         this.lave = this.map.createLayer('lave', this.tileset, 0, 0);
         this.derriere = this.map.createLayer('derriere', this.tileset, 0, 0);
         this.devant = this.map.createLayer('devant', this.tileset, 0, 0);
+        this.plantes = this.map.createLayer('plantes', this.tileset, 0, 0);
+        this.plantes2 = this.map.createLayer('plantes2', this.tileset, 0, 0);
 
         //on définit les collisions, plusieurs méthodes existent:
 
@@ -278,16 +283,15 @@ class TableauTiled extends Tableau{
 
 
 
-            let particles = ici.add.particles("particles", "death-white");
+            let particles = ici.add.particles("smoke");
             let emmiter = particles.createEmitter({
                 frequency:1,
                 lifespan: 150,
                 quantity:32,
-                tint: [0xFFFFFF],
                 rotate: {min: 0, max: 360},
-                scale: {start: 0.2, end: 0.3},
+                scale: {start: 0.05, end: 0.02},
                 alpha: {start: 0.1, end: 0},
-                blendMode: Phaser.BlendModes.ADD,
+                //blendMode: Phaser.BlendModes.ADD,
 
 
             });
@@ -356,11 +360,13 @@ class TableauTiled extends Tableau{
         this.solides.setDepth(z = 1000);
         this.laveFxContainer.setDepth(z--);
         this.lave.setDepth(z--);
-        this.derriere.setDepth(z--);
         this.asteroidsContainer.setDepth(z = 1000);
-        this.staticAstContainer.setDepth(z=999)
+        this.staticAstContainer.setDepth(z=999);
         this.player.setDepth(z--);
+        this.plantes.setDepth(z--);
+        this.plantes2.setDepth(z--);
         this.stars.setDepth(z--);
+        this.derriere.setDepth(z--);
 
 
     }

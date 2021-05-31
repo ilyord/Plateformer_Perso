@@ -6,19 +6,27 @@ class Player extends Phaser.Physics.Arcade.Sprite {
 
 
         //PROPERTIES
-        this.setCollideWorldBounds(true)
+
+        this.dashing = false;
+        this.setCollideWorldBounds(true);
         this.setBounce(0, 0);
         this.setGravityY(1100);
         this.setFriction(100, 100);
 
         this.setBodySize(25, 70);
         this.setOffset(+25, 3);
+        this.CD = 0;
+
+        //TEXTE DASH RESTANT
+
+        this.debugText = scene.add.text(this.x, this.y, 'XY',{
+            font : '24 "Amatic SC"',
+        }).setDepth(2000).setScale(2,2);
 
 
 
+        //CREATION D'ANIMATION
 
-
-        //ANIMATION
         this.anims.create({
             key: 'left',
             flipX : true,
@@ -43,7 +51,7 @@ class Player extends Phaser.Physics.Arcade.Sprite {
             key: 'inAir',
             frames: this.anims.generateFrameNumbers('player', {start: 11, end: 12}),
             frameRate: 5,
-            repeat :-1,
+            repeat :0,
         });
         /*this.anims.create({
             key: 'jump',
@@ -55,69 +63,70 @@ class Player extends Phaser.Physics.Arcade.Sprite {
             key: 'dash',
             frames: [{key: 'player', frame: 13}],
             frameRate: 1,
+            repeat : -1,
 
         });
 
         this._directionX = 0;
         this._directionY = 0;
 
-        this.on('animationcomplete',function () {
+        /*this.on('animationcomplete',function () {
             if(this.anims.currentAnim.key === 'dash'){
                 this.Dashing = false;
-                console.log("CUL");
+                console.log("Oncomplete");
             }
-        });
+        });*/
 
     }
     /**
      * //DASH// *
      * @param targetX
      * @param targetY
+     * @param CDD
      */
-    jumpTo(targetX, targetY) {
+    jumpTo(targetX, targetY,CDD) {
 
-        this.anims.play('dash', false);
-
+        //TRANSFER INFO SUR DASH RESTANTS
+        this.CD = CDD-1;
+        this.dashing = false;
+        this.setVelocityY(-250);
+        // on Set la direction du jump DROITE //
         if (targetX > 1278 && targetY < this.height+1000) {
-
+            //this.anims.play('dash', false);
             //
             Tableau.current.tweens.timeline({
                 targets: this.body.velocity,
                 ease: 'Linear.easeOut ',       // 'Cubic', 'Elastic', 'Bounce', 'Back'
-                duration: 250,
+                duration: 300,
                 loop: 0,
                 tweens: [
                     {
-                        x: +4000,
+                        x: +4500,
                     }
                 ]
             })
             //console.log("RIGHT", "playerX :", this.x, "mouseX :", targetX)
         }
 
-        //console.log("SUM OF DIRECTION=",this.x-targetX);
-
-        // on set la direction du jump //
+        // on Set la direction du jump GAUCHE //
         if (targetX < 1278 && targetY < this.height+1000) {
+            //this.anims.play('dash', false);
             //1278
             Tableau.current.tweens.timeline({
                 targets: this.body.velocity,
                 ease: 'Linear.easeOut ',       // 'Cubic', 'Elastic', 'Bounce', 'Back'
-                duration: 250,
+                duration: 300,
                 loop: 0,
                 tweens: [
                     {
-                        x: -4000,
+                        x: -4500,
 
                     }
                 ]
             })
-            //console.log("LEFT", "targetY :", targetY)
-            //console.log("RIGHT", "mouseX :", targetX)
+            //console.log("LEFT", "mouseX :", targetX)
         }
     }
-
-
 
     set directionX(value){
         this._directionX=value;
@@ -138,38 +147,45 @@ class Player extends Phaser.Physics.Arcade.Sprite {
 
 
     /**
-     * Déplace le joueur en fonction des directions données
+     * Déplace le joueur en fonction des directions données + Affichage CoolDown Dash
      */
 
-    move(){
+    move() {
 
-        switch (true){
-            case this._directionX<0 && this.body.blocked.down:
-                this.setVelocityX(-250);
-                this.anims.play('left', true);
-                this.flipX=true;
-                this.setOffset(+15, 10);
+        if (this.CD > 3) {
+            this.CD = 3
+        } else
+            this.CD = this.CD;
+
+        this.debugText.setText('Dash: ' + this.CD);
+        this.debugText.x = this.x - 35;
+        this.debugText.y = this.y - 70;
+
+
+        //PLAY ANIMATION ET 'flipX' + HITBOX EN FONCTION DU 'flipX'
+
+        switch (true) {
+            case this._directionX < 0 :
+                this.flipX = true;
+                if (this.body.blocked.down) {
+                    this.setVelocityX(-250);
+                    this.anims.play('left', true);
+                    this.setOffset(+15, 10);
+                }
                 //Tableau.sounds.play('playerStep');
                 break;
 
-//---------------------Préparation pour animation en l'air---------------------------------//
-            case this._directionY < 0:
-                this.anims.play('inAir', false);
-                break;
-//-----------------------------------------------------------------------------------------//
 
-            /*case this.body.velocity.y < 0:
-                this.anims.play('inAir', true);
+            //PLAY ANIMATION ET 'flipX' + HITBOX EN FONCTION DU 'flipX'
 
-                break;*/
-
-
-            case this._directionX>0 && this.body.blocked.down:
-                this.setVelocityX(250);
-                this.anims.play('right', true);
-                //Tableau.sounds.play('playerStep');
-                this.flipX=false;
-                this.setOffset(+25, 10);
+            case this._directionX > 0 :
+                this.flipX = false;
+                if (this.body.blocked.down) {
+                    this.setVelocityX(250);
+                    this.anims.play('right', true);
+                    //Tableau.sounds.play('playerStep');
+                    this.setOffset(+25, 10);
+                }
                 break;
 
             default:
@@ -179,21 +195,49 @@ class Player extends Phaser.Physics.Arcade.Sprite {
 
         if (this._directionY < 0) {
             if (this.body.blocked.down || this.body.touching.down) {
-                this.setVelocityY(-500);}
+                this.setVelocityY(-500);
+            }
         }
-
-
 
         if (this._directionX > 0) {
-            if(!this.body.blocked.down || !this.body.touching.down){
+            if (!this.body.blocked.down || !this.body.touching.down) {
 
-                this.setVelocityX(300)}
+                this.setVelocityX(300)
             }
-        if (this._directionX < 0) {
-            if(!this.body.blocked.down || !this.body.touching.down){
-
-                this.setVelocityX(-300)}
         }
 
+        if (this._directionX < 0) {
+            if (!this.body.blocked.down || !this.body.touching.down) {
+
+                this.setVelocityX(-300)
+            }
+        }
+        if (this.dashing == true) {
+            console.log("isDashing",this.dashing);
+            this.anims.play('dash', false);
+        }
+        // ANIMATION EN L'AIR
+
+        if (this._directionY < 0) {
+            this.anims.play('inAir', true);
+        }
+
+        if (this.body.velocity.y < 0) {
+            this.anims.play('inAir', true);
+        }
+        /*if (this._directionY > 0) {
+            this.anims.play('inAir', true);
+        }*/
+
+        if (this.body.velocity.y > 0) {
+            this.anims.play('inAir', true);
+        }
+        /*
+        if(this._directionY = 0){
+        this.anims.play('turn');
+        }
+        if(this.body.velocity.y = 0){
+            this.anims.play('turn');
+        }*/
     }
 }

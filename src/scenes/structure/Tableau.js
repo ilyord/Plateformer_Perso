@@ -12,7 +12,7 @@ class Tableau extends Phaser.Scene{
     }
 
     /**
-     * Par défaut on charge un fond et le player
+     * PRE - LOADING
      */
     preload(){
         this.load.image('smoke', 'assets/smoke.png');
@@ -23,25 +23,26 @@ class Tableau extends Phaser.Scene{
         this.load.audio('playerLanding', 'assets/Sound/landingOnRocks.mp3');
 
 
-
-
+        //SPRITESHEET PLAYER
 
         this.load.spritesheet('player',
             'assets/Re_Resized_Small_Alessia_Running9.png',
             { frameWidth:62 , frameHeight: 39*2  }
         );
     }
+
     create(){
         Tableau.current=this;
         this.isMobile=this.game.device.os.android || this.game.device.os.iOS;
         this.sys.scene.scale.lockOrientation("landscape")
         /**
-         * Le ciel en fond
+         * Étoiles en fond
          * @type {Phaser.GameObjects.Image}
          */
         this.sky=this.add.image(0, 0, 'sky').setOrigin(0,0);
         this.sky.displayWidth=14*64;
         this.sky.setScrollFactor(0,0);
+
         /**
          * Le joueur
          * @type {Player}
@@ -52,91 +53,17 @@ class Tableau extends Phaser.Scene{
         this.blood.displayWidth=64;
         this.blood.displayHeight=64;
         this.blood.visible=false;
-
-        //this.playerStep = this.sound.add('playerStep');
-        //this.playerStep.play();
-
-
-
-
-
-
-/*
-        this.isWalking = false;
-        //this.muting=!this.isWalking;
-
-            this.Tableau = this.sound.add('run');
-
-            var musicConfig =
-                {
-                    markers : 'run',
-                    mute: 0,
-                    volume: 0.3,
-                    rate: 1,
-                    detune: 0,
-                    loop: -1,
-                    Oncomplete: function (){
-                        this.game.sound.stopAll();
-                    }
-                }
-
-        this.Tableau.play(musicConfig);
-
-*/
     }
-
-//BRUIT DE PAS//
-
-    /*runSound (looping,mutesong){
-
-        var looping = true;
-        var mutesong = false;
-        this.Tableau = this.sound.add('run');
-
-        //OUI OU NON ON JOUE L'AUDIO//
-
-        /*if (this.isWalking = true){
-            mutesong = 0
-        }
-        else
-            mutesong = 1;
-
-        //CONFIG SON//
-
-        var musicConfig =
-            {
-                mute: mutesong,
-                volume: 0.3,
-                rate : 1,
-                detune: 0,
-                loop : looping,
-
-                Oncomplete: function (){
-                    this.game.sound.stopAll();
-                }
-            }
-
-        this.Tableau.play(musicConfig);
-
-
-
-        if (looping = false){
-            console.log("MUTE ")
-        }
-        else
-            console.log("APPEL COURSE")
-    }*/
-
-
 
     update(){
         super.update();
         this.player.move();
-        //console.log(this.isWalking)
         this.fallingCheck();
 
-
     }
+
+
+    //---------------------------SOUND DESIGN---------------------------//
 
     fallingCheck(){
         if(this.player.body.onFloor() && this.player.directionY >0)
@@ -158,16 +85,16 @@ class Tableau extends Phaser.Scene{
 
                     }
 
-                //this.Tableau.play(musicConfig);
+                this.Tableau.play(musicConfig);
         }
-            }
+    }
 
 
     /**
-     *
      * @param {Sprite} object Objet qui saigne
      * @param {function} onComplete Fonction à appeler quand l'anim est finie
      */
+
     saigne(object,onComplete){
         let me=this;
         this.physics.pause();
@@ -181,6 +108,7 @@ class Tableau extends Phaser.Scene{
             targets:me.blood,
             duration:600,
             yoyo: -1,
+            rotate: {min: 20, max: 360},
             displayHeight:{
                 from:40,
                 to:150,
@@ -280,6 +208,8 @@ class Tableau extends Phaser.Scene{
 
     }
 
+    //-------------------FIN SOUND DESIGN------------------------//
+
     ramasserEtoile (player, star)
     {
         star.disableBody(true, true);
@@ -299,8 +229,6 @@ class Tableau extends Phaser.Scene{
         
     }
 
-
-
     /**
      * Quand on touche un monstre
      * si on le touche par en haut on le tue, sinon c'est lui qui nous tue
@@ -313,7 +241,7 @@ class Tableau extends Phaser.Scene{
 
         if(this.player.body.velocity.y > 0 && this.player.body.wasTouching.none ){
             //console.log("DOWNSHAKE")
-            this.player.body.setVelocityY((this.player.body.velocity.y*-1)*1.5);
+            this.player.body.setVelocityY((this.player.body.velocity.y*-1)*2);
             this.cameras.main.shake(50,0.0025,false);
         }
         else
@@ -341,7 +269,6 @@ class Tableau extends Phaser.Scene{
                 me.blood.visible = false;
                 me.player.anims.play('turn');
                 me.player.isDead = false;
-
                 me.cameras.main.fadeOut(1000, 0, 0, 0)
                 me.cameras.main.once(Phaser.Cameras.Scene2D.Events.FADE_OUT_COMPLETE, (cam, effect) =>
                 {

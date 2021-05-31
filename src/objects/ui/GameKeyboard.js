@@ -6,16 +6,15 @@ class GameKeyboard extends Phaser.GameObjects.Container{
         super(scene, x, y)
         scene.add.existing(this);
 
-        //Ecoute du click
+        //Écoute du click
 
         this.cursors = scene.input.keyboard.createCursorKeys();
 
-        //-------------CD DASH--------------//
+        //-------------DASH+COOLDOWN--------------//
 
-        var CdDash = 3;
+        var CdDash = 0;
         var MaxDash = 3;
 
-        //Dash
         scene.input.on('pointerdown', function(pointer){
             if(CdDash > MaxDash){
                 CdDash = 3;
@@ -25,22 +24,20 @@ class GameKeyboard extends Phaser.GameObjects.Container{
             if(CdDash>0) {
                 if (Tableau.current) {
                     if (pointer.worldY < 800 && pointer.worldX < 2600) {
-                        //if(!Tableau.current.player.body.onFloor()) { (//si le joueur est au sol il ne peut pas sauter//)
-                        Tableau.current.player.jumpTo(pointer.worldX, pointer.worldY);
+                        Tableau.current.player.jumpTo(pointer.worldX, pointer.worldY,CdDash);
                         Tableau.current.wooshShound();
                         Tableau.current.cameras.main.shake(70, 0.0040, false);
-                        //console.log("pointer.worldX:", pointer.worldX);
-                        //console.log("pointer.worldY:", pointer.worldY);
-                        //console.log("X :", Tableau.current.player.x, "Y :",Tableau.current.player.y)
-                        //}
                         CdDash -= 1;
-                        //ui.add.text(screen.width/2,screen.height/2+100,CdDash);
-                        console.log("CdDash", CdDash);
+                        this.dashing = true;
+
+                        console.log("DashingClick", this.dashing);
                     }
                 }
             }
         })
 
+
+        //-------------Écoute des touches appuyées---------------//
 
         scene.input.keyboard.on('keydown', function(kevent){
             switch (kevent.key){
@@ -61,26 +58,31 @@ class GameKeyboard extends Phaser.GameObjects.Container{
                     break;
 
 
-                    //ULTRABOUNCE
+                    //SUPER -BOUNCE//
 
                 case "ArrowDown":
                     if (!Tableau.current.player.body.onFloor()){
-                        CdDash += 1 ;
-                        Tableau.current.player.directionY = 1;
-                        Tableau.current.player.setVelocityY(+900);
-                        Tableau.current.player.setGravityY(2000);
-                        Tableau.current.player.setBounceY(3);
-                        Tableau.current.player.setBounceX(3);
-                        Tableau.current.wooshShound2();
-                        console.log("CdDash", CdDash);
+                        if(CdDash > MaxDash){
+                            CdDash = 3;
+                        }
+                        else{
+                            CdDash = CdDash;}
+                            CdDash += 1;
+                            Tableau.current.player.directionY = 1;
+                            Tableau.current.player.setVelocityY(+900);
+                            Tableau.current.player.setGravityY(2000);
+                            Tableau.current.player.setBounceY(3);
+                            Tableau.current.player.setBounceX(3);
+                            Tableau.current.wooshShound2();
+                            Tableau.current.player.CD += 1;
+                            //console.log("CdDash", CdDash);
+                        }
 
-
-                    }
                     break;
             }
         });
 
-        //INPUT UP
+        //-------------Écoute des touches PAS appuyées---------------//
 
         scene.input.keyboard.on('keyup', function(kevent){
             switch (kevent.key){
@@ -97,8 +99,7 @@ class GameKeyboard extends Phaser.GameObjects.Container{
                     Tableau.current.player.setGravityY(950);
                     break;
 
-
-                    //NO-ULTRABOUNCE
+                    //NO SUPER-BOUNCE
 
                 case "ArrowDown":
                     Tableau.current.isWalking =false;
@@ -109,9 +110,6 @@ class GameKeyboard extends Phaser.GameObjects.Container{
             }
         });
     }
-
-
-//INPUT DOWN
 }
 
 
