@@ -12,7 +12,7 @@ class GamePadButtons extends GameKeyboard{
             this.size=size;
         }
         else
-            this.size=size*2;
+            this.size=size*3;
 
 
         let w=this.size/3;
@@ -57,12 +57,16 @@ class GamePadButtons extends GameKeyboard{
             Tableau.current.player.setGravityY(500);
         });
         btnDOWN.on('pointerdown',function(){
-            Tableau.current.player.directionY=1;
-            Tableau.current.player.setVelocityY(+900);
-            Tableau.current.player.setGravityY(2000);
-            Tableau.current.player.setBounceY(3);
-            Tableau.current.player.setBounceX(3);
-            Tableau.current.wooshShound2();
+                GameKeyboard.CdDash += 1;
+                Tableau.current.player.directionY = 1;
+                Tableau.current.player.setVelocityY(+900);
+                Tableau.current.player.setGravityY(2000);
+                Tableau.current.player.setBounceY(3);
+                Tableau.current.player.setBounceX(3);
+                Tableau.current.wooshShound2();
+                Tableau.current.player.CD += 1;
+                //console.log("CdDash", CdDash);
+
         });
 
         btnLEFT.on('pointerup',function(){

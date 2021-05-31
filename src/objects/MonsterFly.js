@@ -16,7 +16,7 @@ class MonsterFly extends ObjetEnnemi {
         this.body.allowGravity = true;
         this.body.setGravityY(1500/this.size);
         this.rotateSpeed = Math.random() * 180 / this.size;
-        this.rotateSpeed = this.rotateSpeed / 50;
+        this.rotateSpeed = this.rotateSpeed / 35;
 
 
         //Offset
@@ -28,6 +28,7 @@ class MonsterFly extends ObjetEnnemi {
         this.body.setVelocityY(100);
 
         this.scene.events.on('update', (time, delta) => { this.update(time, delta)} );
+        this.sensRotation=Math.random()>0.5?-1:1;
 
     }
 
@@ -44,7 +45,7 @@ class MonsterFly extends ObjetEnnemi {
 //Rotation en boucle
 
     loop(sz) {
-        this.rotation += this.rotateSpeed;
+        this.rotation -= (this.rotateSpeed*this.sensRotation);
     }
 }
 

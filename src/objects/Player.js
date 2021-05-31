@@ -19,9 +19,15 @@ class Player extends Phaser.Physics.Arcade.Sprite {
 
         //TEXTE DASH RESTANT
 
-        this.debugText = scene.add.text(this.x, this.y, 'XY',{
-            font : '24 "Amatic SC"',
+        this.debugText = scene.add.text(this.x, this.y, '',{
+            fontFamily: "'Amatic SC'"
         }).setDepth(2000).setScale(2,2);
+
+        let ici=this;
+        this.debugText.setText(".");
+        setTimeout(function(){
+            ici.debugText.setText("");
+        },100);
 
 
 
@@ -152,10 +158,10 @@ class Player extends Phaser.Physics.Arcade.Sprite {
 
     move() {
 
-        if (this.CD > 3) {
-            this.CD = 3
-        } else
-            this.CD = this.CD;
+
+        this.CD=Math.min(this.CD,3);
+
+
 
         this.debugText.setText('Dash: ' + this.CD);
         this.debugText.x = this.x - 35;

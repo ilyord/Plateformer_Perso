@@ -178,7 +178,7 @@ class Tableau extends Phaser.Scene{
 
         //console.log("DEATHSOUND")
 
-        PlayerYY = (PlayerYY/1100);
+        PlayerYY = (PlayerYY/1600);
          let volumeXX = 1;
 
 
@@ -223,7 +223,7 @@ class Tableau extends Phaser.Scene{
         totalActive += 1;
         console.log(totalActive);
 
-        if(totalActive>1){
+        if(totalActive>0){
             this.win();
         }
         

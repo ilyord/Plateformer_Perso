@@ -121,6 +121,7 @@ class Welcome extends Phaser.Scene {
             }
 
         },this);
+
     }
 
 }
