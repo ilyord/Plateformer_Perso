@@ -12,7 +12,7 @@ class GamePadButtons extends GameKeyboard{
             this.size=size;
         }
         else
-            this.size=size*3;
+            this.size=size*8;
 
 
         let w=this.size/3;
@@ -57,7 +57,7 @@ class GamePadButtons extends GameKeyboard{
             Tableau.current.player.setGravityY(500);
         });
         btnDOWN.on('pointerdown',function(){
-                GameKeyboard.CdDash += 1;
+                Tableau.current.CdDash += 1;
                 Tableau.current.player.directionY = 1;
                 Tableau.current.player.setVelocityY(+900);
                 Tableau.current.player.setGravityY(2000);

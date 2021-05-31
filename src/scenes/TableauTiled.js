@@ -19,7 +19,7 @@ class TableauTiled extends Tableau{
         // ------pour TILED-------------
 
         this.load.image('tiles', 'assets/tilemaps/Petite_Bleu_Plateformes_lineless.png');
-        this.load.tilemapTiledJSON('map', 'assets/tilemaps/tableauTiled26.json');
+        this.load.tilemapTiledJSON('map', 'assets/tilemaps/tableauTiled28.json');
 
         // nos images
 
@@ -58,11 +58,11 @@ class TableauTiled extends Tableau{
         //TUTO
 
 
-            const image = this.add.image(2100, 600, 'tuto_basic').setDepth(998);
-            const image2 =this.add.image(3300,400,'tuto_dash').setDepth(998).setScale(0.8,0.8);
-            const image3 =this.add.image(7730,1300,'tuto_superBounce').setDepth(998).setScale(0.7,0.7);
-            const image4 =this.add.image(6930,935,'tuto_avoid').setDepth(998).setScale(0.8,0.8);
-            const image5 =this.add.image(12750,1825,'tuto_jumpOn').setDepth(998).setScale(0.8,0.8);
+            const image = this.add.image(2100, 600, 'tuto_basic').setDepth(950);
+            const image2 =this.add.image(3300,400,'tuto_dash').setDepth(950).setScale(0.8,0.8);
+            const image3 =this.add.image(7730,1200,'tuto_superBounce').setDepth(950).setScale(0.7,0.7);
+            const image4 =this.add.image(6930,935,'tuto_avoid').setDepth(950).setScale(0.8,0.8);
+            const image5 =this.add.image(12750,1825,'tuto_jumpOn').setDepth(950).setScale(0.8,0.8);
 
             //TWEENS TUTO_PANEL
 
@@ -87,7 +87,7 @@ class TableauTiled extends Tableau{
         this.tweens.add({
             targets: image3,
             x: 7730,
-            y: 1300-25,
+            y: 1200-50,
             ease: 'Linear.easeInOut',
             yoyo: true,
             repeat: -1,

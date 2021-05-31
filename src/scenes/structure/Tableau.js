@@ -218,12 +218,12 @@ class Tableau extends Phaser.Scene{
 
 
         //va lister tous les objets de la scène pour trouver les étoies et vérifier si elles sont actives
-        
+
         let totalActive=0;
         totalActive += 1;
         console.log(totalActive);
 
-        if(totalActive>0){
+        if(totalActive>1){
             this.win();
         }
         
@@ -239,7 +239,7 @@ class Tableau extends Phaser.Scene{
 
         let me=this;
 
-        if(this.player.body.velocity.y > 0 && this.player.body.wasTouching.none ){
+        if(this.player.body.velocity.y > 0){
             //console.log("DOWNSHAKE")
             this.player.body.setVelocityY((this.player.body.velocity.y*-1)*2);
             this.cameras.main.shake(50,0.0025,false);
