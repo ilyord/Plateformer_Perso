@@ -19,7 +19,7 @@ https://ilyord.github.io/Plateformer_Perso/
 ### Character: ###
 
 - [X] running
-- [ ] jumping
+- [X] jumping
 - [X] falling
 - [ ] dashing
 
@@ -46,11 +46,11 @@ https://ilyord.github.io/Plateformer_Perso/
 
 ## Graphism ##
 
-- [X] Asteroids
+- [x] Asteroids
 - [x] Platform
 - [x] Background
 - [x] \(Alpha) Tutorial pannels
-- [ ] Plants
+- [x] Plants
 
 - [ ] Letter
 
@@ -72,15 +72,31 @@ https://ilyord.github.io/Plateformer_Perso/
 # VFX #
 
 - [X] When player collides
-- [X] When player walks 
 - [X] When player dash
 - [ ] \(Optional) Trail for asteroids
-- [ ] \(Optional) Background
 
 This game needs to be tested, do not hesitate to give me feedback !
 
 
 # Version Log : #
+
+## Alpha 2.0 - Graphic's Update 3
+
+### Adding :
+
+- Plants (graphism)
+- Moving asteroids are now respanwing !
+- Compatiblity for smartphones and tablets
+- Smoke particules (player)
+
+### Changing :
+
+- No more gravity glitch.
+- Static asteroid makes you jump higher.
+- Dash now has 3 charges max.
+- Super-Bounce refill 1 dash.
+- Big moving asteroids rotate slower
+- Fix animations
 
 ## Alpha 2.0 - Graphic's Update 2
 
