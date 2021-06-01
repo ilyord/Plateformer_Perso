@@ -19,7 +19,7 @@ class TableauTiled extends Tableau{
         // ------pour TILED-------------
 
         this.load.image('tiles', 'assets/tilemaps/Petite_Bleu_Plateformes_lineless.png');
-        this.load.tilemapTiledJSON('map', 'assets/tilemaps/tableauTiled28.json');
+        this.load.tilemapTiledJSON('map', 'assets/tilemaps/tableauTiled_ck3.json');
 
         // nos images
 
@@ -32,6 +32,8 @@ class TableauTiled extends Tableau{
         this.load.image('NUAGE2', 'assets/fond/Sunless_Background_Nuage2.png');
         this.load.image('GALAXY', 'assets/fond/Sunless_Background_Galaxy.png');
         this.load.image('BH', 'assets/fond/Sunless_Background_BH.png');
+
+        this.load.image('check','assets/checkpoint.png');
 
         this.load.image('tuto_basic', 'assets/tuto/Small_Basics_Tutorial_Sign3.jpg');
         this.load.image('tuto_avoid', 'assets/tuto/Small_Avoid_Ast_Tutorial_Sign2.jpg');
@@ -166,6 +168,37 @@ class TableauTiled extends Tableau{
             // Pour chaque étoile on la positionne pour que ça colle bien car les étoiles ne font pas 64x64
             let star = this.stars.create(starObject.x+32, starObject.y+32 , 'particles','star');
         });
+
+
+        //---------------Checkpoint-----------------------//
+
+                let playerPos;
+            this.checkPoint = this.physics.add.group({
+                allowGravity: false,
+                immovable:false
+            });
+
+            this.checkPointsObjects = this.map.getObjectLayer('checkPoints')['objects'];
+            this.checkPointsObjects.forEach(checkPointObject => {
+                console.log(checkPointObject)
+                let cP = new checkPoint(
+                    this,
+                    checkPointObject.x,
+                    checkPointObject.y,
+                    'check',
+                checkPointObject.properties[0].value
+            );
+            this.physics.add.overlap(this.player, cP, function(){
+                cP.savePos();
+            });
+
+            let playerPos = cP.loadPos();
+            if(playerPos){
+                ici.player.setPosition(playerPos.x, playerPos.y);
+            }
+            console.log(playerPos);
+
+        })
 
 
         //----------Asteroides (objets tiled) ---------------------
@@ -357,6 +390,7 @@ class TableauTiled extends Tableau{
         this.blood.setDepth(z--);
         starsFxContainer.setDepth(z--);
         this.devant.setDepth(z--);
+        this.checkPoint.setDepth(z--);
         this.solides.setDepth(z = 1000);
         this.laveFxContainer.setDepth(z--);
         this.lave.setDepth(z--);
