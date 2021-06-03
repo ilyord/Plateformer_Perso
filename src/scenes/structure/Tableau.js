@@ -47,7 +47,7 @@ class Tableau extends Phaser.Scene{
          * Le joueur
          * @type {Player}
          */
-        this.player=new Player(this,1650,750); //1650
+        this.player=new Player(this,1054,2647); //1650
         this.player.setMaxVelocity(950,850); //évite que le player quand il tombe ne traverse des plateformes
         this.blood = this.add.sprite(this.sys.canvas.width / 2, this.sys.canvas.height / 2,"smoke")
         this.blood.displayWidth=64;
@@ -223,7 +223,7 @@ class Tableau extends Phaser.Scene{
         totalActive += 1;
         console.log(totalActive);
 
-        if(totalActive>1){
+        if(totalActive>0){
             this.win();
         }
         

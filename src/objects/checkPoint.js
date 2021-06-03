@@ -8,6 +8,8 @@ class checkPoint extends Phaser.Physics.Arcade.Sprite{
         this.valuePos = value;
         this.body.allowGravity=false;
         console.log(this.valuePos);
+        this.setScale(0.5,0.3)
+
 
     }
 

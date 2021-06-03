@@ -174,7 +174,7 @@ class Player extends Phaser.Physics.Arcade.Sprite {
             case this._directionX < 0 :
                 this.flipX = true;
                 if (this.body.blocked.down) {
-                    this.setVelocityX(-250);
+                    this.setVelocityX(-350);
                     this.anims.play('left', true);
                     this.setOffset(+15, 10);
                 }
@@ -187,7 +187,7 @@ class Player extends Phaser.Physics.Arcade.Sprite {
             case this._directionX > 0 :
                 this.flipX = false;
                 if (this.body.blocked.down) {
-                    this.setVelocityX(250);
+                    this.setVelocityX(350);
                     this.anims.play('right', true);
                     //Tableau.sounds.play('playerStep');
                     this.setOffset(+25, 10);
@@ -208,14 +208,14 @@ class Player extends Phaser.Physics.Arcade.Sprite {
         if (this._directionX > 0) {
             if (!this.body.blocked.down || !this.body.touching.down) {
 
-                this.setVelocityX(300)
+                this.setVelocityX(450)
             }
         }
 
         if (this._directionX < 0) {
             if (!this.body.blocked.down || !this.body.touching.down) {
 
-                this.setVelocityX(-300)
+                this.setVelocityX(-450)
             }
         }
         if (this.dashing == true) {
