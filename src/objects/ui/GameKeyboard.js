@@ -30,7 +30,7 @@ class GameKeyboard extends Phaser.GameObjects.Container{
                         CdDash -= 1;
                         this.dashing = true;
 
-                        console.log(Tableau.current.player.x,Tableau.current.player.y);
+                        //console.log(Tableau.current.player.x,Tableau.current.player.y);
                     }
                 }
             }

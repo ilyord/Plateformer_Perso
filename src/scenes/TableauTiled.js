@@ -180,7 +180,7 @@ class TableauTiled extends Tableau{
 
             this.checkPointsObjects = this.map.getObjectLayer('checkPoints')['objects'];
             this.checkPointsObjects.forEach(checkPointObject => {
-                console.log(checkPointObject)
+                //console.log(checkPointObject)
                 let cP = new checkPoint(
                     this,
                     checkPointObject.x,
@@ -196,7 +196,7 @@ class TableauTiled extends Tableau{
             if(playerPos){
                 ici.player.setPosition(playerPos.x, playerPos.y);
             }
-            console.log(playerPos);
+            //console.log(playerPos);
 
         })
 
