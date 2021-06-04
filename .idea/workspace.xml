@@ -47,6 +47,7 @@
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2021.1.1\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -88,7 +89,8 @@
       <workItem from="1622448774883" duration="13784000" />
       <workItem from="1622477047401" duration="4048000" />
       <workItem from="1622549285643" duration="5444000" />
-      <workItem from="1622721942670" duration="9695000" />
+      <workItem from="1622721942670" duration="9910000" />
+      <workItem from="1622790777705" duration="6466000" />
     </task>
     <servers />
   </component>

@@ -386,6 +386,7 @@ class TableauTiled extends Tableau{
 
         //on définit les z à la fin
         let z=1000; //niveau Z qui a chaque fois est décrémenté.
+        this.checkPoint.setDepth(z--);
         debug.setDepth(z--);
         this.blood.setDepth(z--);
         starsFxContainer.setDepth(z--);
@@ -401,6 +402,7 @@ class TableauTiled extends Tableau{
         this.plantes2.setDepth(z--);
         this.stars.setDepth(z--);
         this.derriere.setDepth(z--);
+
 
 
     }

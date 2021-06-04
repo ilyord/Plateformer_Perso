@@ -291,16 +291,31 @@ class Tableau extends Phaser.Scene{
      * Quand on a gagné
      */
     win(){
-        console.log("Function_win")
+        //console.log("Function_win")
         this.cameras.main.fadeOut(2000, 0, 0, 0)
         this.cameras.main.once(Phaser.Cameras.Scene2D.Events.FADE_OUT_COMPLETE, (cam, effect) =>
         {
             this.game.sound.stopAll();
-           ui.add.text(width/2-300,height/2-100,"Press F5 to restart...",{
+           ui.add.text(width/2-400,height/2-300,"Alessia... te reverrais-je un jour ?",{
                font: '32px "Amatic SC"',
                align: 'center',
                fill: '#fff'
            }).setScale(3,3);
+            ui.add.text(width/2-700,height/2-100,"Notre monde s'éteint et tout le monde se voile la face... ",{
+                font: '32px "Amatic SC"',
+                align: 'center',
+                fill: '#fff'
+            }).setScale(3,3);
+            ui.add.text(width/2-700,height/2+50,"Mais je crois avoir trouvé une solution, enfin j'espère.",{
+                font: '32px "Amatic SC"',
+                align: 'center',
+                fill: '#fff'
+            }).setScale(3,3);
+            ui.add.text(width/2-200,height/2+250,"Je t'aime Alessia.",{
+                font: '32px "Amatic SC"',
+                align: 'center',
+                fill: '#fff'
+            }).setScale(3,3);
         })
     }
 }

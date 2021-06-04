@@ -27,7 +27,7 @@ class Player extends Phaser.Physics.Arcade.Sprite {
         this.debugText.setText(".");
         setTimeout(function(){
             ici.debugText.setText("");
-        },100);
+        },10);
 
 
 
